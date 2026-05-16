@@ -22,70 +22,30 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
-/* 전역 배지 강제 차단 */
-blockquote.tw-ui::before {
-    content: none !important;
-    display: none !important;
-}
-
-/* 헤더 */
-blockquote.tw-ui header {
-    width: 94% !important;
-    margin: 0 auto !important;
-    height: 42px !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    padding: 0 16px !important;
+/* 개별 트윗 박스 */
+blockquote.tw-ui article {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 16px 14px 68px !important;
     border-bottom: 1px solid #38444d !important;
     box-sizing: border-box !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
+    background: #15202b !important;
 }
 
-/* 헤더 내 트위터 로고 */
-blockquote.tw-ui header::before {
-    content: "" !important;
-    display: inline-block !important;
-    width: 20px !important;
-    height: 20px !important;
-    margin-right: 8px !important;
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/blue_bird.webp') !important;
-    background-repeat: no-repeat !repeat;
-    background-position: center !important;
-    background-size: contain !important;
+blockquote.tw-ui article:last-of-type {
+    border-bottom: none !important;
 }
 
-/* 트윗 개별 박스 공통 (.tw-item 클래스로 통합 제어) */
-blockquote.tw-ui .tw-item {
-    display: block !important;
-    width: 94% !important;
-    margin: 0 auto !important;
-    padding: 14px 16px 14px 68px !important;
-    box-sizing: border-box !important;
-    background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
-    background-size: calc(100% - 84px) 1px !important;
-    background-position: bottom right 16px !important;
-    background-repeat: no-repeat !important;
-    position: relative !important;
-    max-width: 94% !important;
-    overflow: hidden !important;
-}
-
-blockquote.tw-ui .tw-item:last-child {
-    background-image: none !important;
-}
-
-/* 프로필 이미지 기본 규격 (트친용 가상 요소) */
-blockquote.tw-ui .tw-item::before {
+/* 프로필 이미지 기본 규격 고정 */
+blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
     left: 16px !important;
     top: 14px !important;
     width: 40px !important;
     height: 40px !important;
-    border-radius: 8px !important;
+    border-radius: 50% !important;
     background-color: #22303c !important;
     background-size: cover !important;
     background-position: center !important;
@@ -93,142 +53,94 @@ blockquote.tw-ui .tw-item::before {
     z-index: 5 !important;
 }
 
-/* NPC 프로필 기본 가상 배경 제거 */
-blockquote.tw-ui .tw-item.npc::before {
-    background-image: none !important;
-    background-color: #22303c !important;
-}
-
-/* 플랫폼 치환 이미지 컴포넌트 강제 압착 및 프로필화 */
-blockquote.tw-ui .tw-item.npc img,
-blockquote.tw-ui .tw-item.npc div:has(img),
-blockquote.tw-ui .tw-item.npc span:has(img),
-blockquote.tw-ui .tw-item.npc p:has(img) {
-    position: absolute !important;
-    left: 16px !important;
-    top: 14px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 8px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 10 !important;
-}
-
-blockquote.tw-ui .tw-item.npc img {
-    object-fit: cover !important;
-}
-
-/* 위젯 내부 불필요한 레이아웃 파괴 */
-blockquote.tw-ui .tw-item.npc button,
-blockquote.tw-ui .tw-item.npc svg,
-blockquote.tw-ui .tw-item.npc div:has(img)>div:not(:has(img)) {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
-}
-
 /* 트친 프로필 이미지 풀 */
-blockquote.tw-ui .tw-item.friend.p1::before {
+blockquote.tw-ui article.friend.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
 }
 
-blockquote.tw-ui .tw-item.friend.p2::before {
+blockquote.tw-ui article.friend.p2::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
 }
 
-blockquote.tw-ui .tw-item.friend.p3::before {
+blockquote.tw-ui article.friend.p3::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
 }
 
-blockquote.tw-ui .tw-item.friend.p4::before {
+blockquote.tw-ui article.friend.p4::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
 }
 
-blockquote.tw-ui .tw-item.friend.p5::before {
+blockquote.tw-ui article.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
-/* 닉네임 영역 */
-blockquote.tw-ui .tw-item h3 {
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
+/* NPC 프로필 이미지 배경색 제어 */
+blockquote.tw-ui article.npc::before {
+    background-color: #1da1f2 !important;
+}
+
+/* 닉네임 스타일 (전체 흰색 통일) */
+blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 600 !important;
     color: #ffffff !important;
     text-align: left !important;
     line-height: 1.2 !important;
-    padding-right: 30px !important;
-    box-sizing: border-box !important;
 }
 
-/* 점 세 개 버튼 우측 상단 고정 */
-blockquote.tw-ui .tw-item h3::before {
-    content: "⋯" !important;
-    position: absolute !important;
-    right: 0 !important;
-    top: 0 !important;
-    color: #8899a6 !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    line-height: 1 !important;
-    z-index: 15 !important;
-}
-
-/* 메타데이터 완전 삭제, 비밀계정 자물쇠만 이름 뒤에 노출 */
-blockquote.tw-ui .tw-item h3::after {
-    content: "🔒" !important;
+/* 비밀계정 자물쇠만 이름 뒤에 노출 (아이디, 시간 제거 완료) */
+blockquote.tw-ui article h3::after {
+    content: " 🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
     opacity: 0.8 !important;
 }
 
 /* 본문 영역 */
-blockquote.tw-ui .tw-item p,
-blockquote.tw-ui .tw-item div,
-blockquote.tw-ui .tw-item span {
-    margin: 0 !important;
+blockquote.tw-ui article p {
+    margin: 0 0 8px 0 !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
     white-space: pre-wrap !important;
-    word-break: break-all !important;
     color: #e1e8ed !important;
     text-align: left !important;
     font-weight: 400 !important;
-    max-width: 100% !important;
-    display: block !important;
 }
 
-blockquote.tw-ui .tw-item p {
-    margin-bottom: 8px !important;
-}
-
-/* 인터랙션 바 */
-blockquote.tw-ui .tw-item footer {
+/* 하단 인터랙션 메트릭 */
+blockquote.tw-ui article::after {
+    content: "💬 " attr(data-reply) "          ↻ " attr(data-rt) "          ♡ " attr(data-like) "          𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
-    white-space: pre !important;
+    text-align: left !important;
 }
 
-/* 카피라이트 */
-blockquote.tw-ui::after {
-    content: "© 2026 Shybee (EJ) on Plaitoon" !important;
-    display: block !important;
-    width: 94% !important;
-    margin: 0 auto !important;
-    padding: 10px 16px !important;
-    text-align: right !important;
-    font-size: 11px !important;
+
+/* ==========================================================
+   [치트키 블록] NPC 태그 내부의 생 마크다운 주소 글자만 원천 차단
+   ========================================================== */
+blockquote.tw-ui article.npc {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+
+/* 부모가 투명해졌으므로 실제 본문 요소들의 폰트 속성만 정상 원복 */
+blockquote.tw-ui article.npc h3 {
+    font-size: 15px !important;
+    color: #ffffff !important;
+}
+
+blockquote.tw-ui article.npc p {
+    font-size: 14px !important;
+    color: #e1e8ed !important;
+}
+
+blockquote.tw-ui article.npc::after {
+    font-size: 12px !important;
     color: #8899a6 !important;
-    border-top: 1px solid #38444d !important;
-    box-sizing: border-box !important;
-    opacity: 1 !important;
-    font-style: normal !important;
 }
