@@ -76,7 +76,7 @@ blockquote.tw-ui article.friend::before {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 닉네임 영역 (기준점 설정) */
+/* 닉네임 영역 (가로 폭 컴포넌트 전체 확장) */
 blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
@@ -85,24 +85,26 @@ blockquote.tw-ui article h3 {
     text-align: left !important;
     line-height: 1.2 !important;
 
-    position: relative !important;
-    /* 점 세 개 정렬을 위한 기준점 락인 */
-    padding-right: 20px !important;
-    /* 닉네임 길어질 때 점 세 개 점령 방지 */
+    /* 렌더러 절대좌표 버그 우회를 위해 블록 속성 부여 및 풀 와이드 처리 */
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 (위치 수정) */
+/* 닉네임 우측 끝 점 세 개 메뉴 (Float 방식으로 전면 개편) */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
-    position: absolute !important;
-    right: 0 !important;
-    /* article 끝이 아니라 h3 라인 우측 끝으로 밀착 */
-    top: 50% !important;
-    /* 닉네임 글자 높이 기준 정확히 정중앙 정렬 */
-    transform: translateY(-50%) !important;
+    float: right !important;
+    /* absolute를 걷어내고 우측 플로팅으로 벼랑 끝 고정 */
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
+    line-height: 1.2 !important;
+
+    /* 기존 버그 유발 속성 초기화 */
+    position: static !important;
+    transform: none !important;
 }
 
 /* 비밀계정 자물쇠 */
