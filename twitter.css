@@ -1,115 +1,116 @@
-/* Twitter UI - blockquote 기반 안정화 버전 */
+/* Twitter UI */
 
-/* 메인 컨테이너: .tw-ui 클래스가 붙은 blockquote */
+/* 메인 컨테이너 */
 blockquote.tw-ui {
     display: block !important;
-    width: 100% !important; /* 채팅창 가로 사이즈에 자동으로 맞춤 */
-    max-width: none !important; /* style.css의 고정 너비 강제 해제 */
+    width: 100% !important;
+    max-width: none !important;
     box-sizing: border-box !important;
     margin: 16px 0 !important;
     background: #15202b !important;
     color: #e7edf3 !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif !important;
-    border: 1px solid #38444d !important; /* 얇고 세련된 선 */
-    border-radius: 16px !important; /* 곡선형 둥근 모서리 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", sans-serif !important;
+    border: 1px solid #38444d !important;
+    border-radius: 16px !important;
     overflow: hidden !important;
-    line-height: 1.3 !important;
-    text-align: left !important; /* 중앙 정렬 강제 해제 */
+    line-height: 1.5 !important;
+    /* 행간 확장으로 답답함 해소 */
+    text-align: left !important;
     padding: 0 !important;
     font-style: normal !important;
-    box-shadow: none !important; /* style.css의 두꺼운 테두리 효과 해제 */
+    box-shadow: none !important;
 }
 
 /* 헤더 */
 blockquote.tw-ui header {
-    height: 55px !important;
+    height: 53px !important;
     display: flex !important;
     align-items: center !important;
     padding: 0 16px !important;
     border-bottom: 1px solid #38444d !important;
-    font-size: 20px !important;
+    font-size: 19px !important;
     font-weight: 800 !important;
+    color: #ffffff !important;
 }
 
 /* 트윗 개별 박스 */
 blockquote.tw-ui article {
     display: flex !important;
     flex-direction: column !important;
-    padding: 12px 16px 12px 64px !important; /* 왼쪽 여백 최적화 */
-    border-bottom: none !important; /* 기존 전체 가로지르는 선 제거 */
-    
-    /* 아바타 영역(왼쪽)을 제외하고 부분적으로만 가로지르는 세련된 구분선 */
+    padding: 14px 16px 14px 68px !important;
+    /* 여백 밸런스 조정 */
+
     background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
-    background-size: calc(100% - 80px) 1px !important; /* 여백에 맞게 대응 */
+    background-size: calc(100% - 84px) 1px !important;
     background-position: bottom right 16px !important;
     background-repeat: no-repeat !important;
-    
+
     position: relative !important;
-    min-height: 80px !important;
 }
 
 blockquote.tw-ui article:last-child {
-    background-image: none !important; /* 마지막 트윗은 구분선 없음 */
+    background-image: none !important;
 }
 
 /* 프로필 이미지 가상 요소 */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
-    left: 14px !important;
-    top: 12px !important;
-    width: 40px !important; /* 48px에서 40px로 축소 */
+    left: 16px !important;
+    top: 14px !important;
+    width: 40px !important;
+    /* 48px에서 40px로 축소하여 세련되게 조정 */
     height: 40px !important;
     border-radius: 50% !important;
     background-color: #22303c !important;
     background-size: cover !important;
+    background-position: center !important;
 }
 
 blockquote.tw-ui article.npc::before {
     background-image: url('https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png') !important;
 }
 
+/* 친구 프로필: 이모지 대신 골드 서클로 고급화 */
 blockquote.tw-ui article.friend::before {
-    content: "🌙" !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 24px !important;
+    background-color: #f5a623 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 닉네임 영역 (아이디/시간 삭제, 비밀계정 자물쇠 추가) */
+/* 닉네임 영역 (비밀계정 자물쇠 무조건 고정) */
 blockquote.tw-ui article h3 {
-    margin: 0 0 2px 0 !important;
+    margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 700 !important;
-    display: flex !important;
-    align-items: center !important;
-    color: #ffffff !important; /* 완전한 화이트로 강조 */
-    text-align: left !important; /* 중앙 정렬 해제 */
+    color: #ffffff !important;
+    text-align: left !important;
 }
 
 blockquote.tw-ui article h3::after {
     content: "🔒" !important;
     margin-left: 4px !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
+    opacity: 0.8;
 }
 
 /* 본문 */
 blockquote.tw-ui article p {
-    margin: 3px 0 0 0 !important;
-    font-size: 14px !important; /* 15px에서 14px로 낮춰 계층 분리 */
-    line-height: 1.45 !important;
+    margin: 0 0 8px 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
     white-space: pre-wrap !important;
-    color: #cbd5e1 !important; /* 본문 톤을 살짝 다운 */
-    text-align: left !important; /* 중앙 정렬 해제 */
+    color: #e1e8ed !important;
+    /* 가독성 상향 */
+    text-align: left !important;
 }
 
-/* 하단 아이콘 가상 요소 */
+/* 하단 인터랙션 메트릭 (전체 동적화 및 리트윗 유지) */
 blockquote.tw-ui article::after {
-    content: "💬 " attr(data-reply) "    ↻ 0    ♡ " attr(data-like) !important;
+    content: "💬 " attr(data-reply) "      ⇄ " attr(data-rt) "      ♥ " attr(data-like) !important;
     display: block !important;
-    margin-top: 10px !important;
     color: #8899a6 !important;
-    font-size: 13px !important;
-    word-spacing: 12px !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 4px !important;
 }
