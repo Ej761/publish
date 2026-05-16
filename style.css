@@ -1,0 +1,22 @@
+/* style.css */
+.test-box {
+    /* 눈에 확 띄도록 핫핑크 배경색을 줍니다 */
+    background-color: hotpink;
+    /* 글자색은 흰색 */
+    color: white;
+    /* 글자 크기를 아주 크게 설정합니다 */
+    font-size: 50px;
+    /* 폰트를 굵게 만듭니다 */
+    font-weight: bold;
+    /* 글자를 가운데로 정렬합니다 */
+    text-align: center;
+    /* 안쪽 여백을 줘서 큼직하게 만듭니다 */
+    padding: 50px;
+    /* 노란색 점선 테두리를 두껍게 칩니다 */
+    border: 10px dashed yellow;
+    /* 모서리를 둥글게 깎아줍니다 */
+    border-radius: 20px;
+    /* 여백을 줘서 화면 가운데쯤 오게 합니다 */
+    margin: 50px auto;
+    width: 50%;
+}
