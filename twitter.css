@@ -3,13 +3,14 @@
 /* 메인 컨테이너: .tw-ui 클래스가 붙은 blockquote */
 blockquote.tw-ui {
     display: block !important;
-    max-width: 470px !important;
-    margin: 20px auto !important;
+    width: 100% !important; /* 채팅창 가로 사이즈에 자동으로 맞춤 */
+    box-sizing: border-box !important;
+    margin: 16px 0 !important;
     background: #15202b !important;
     color: #e7edf3 !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif !important;
-    border: 1px solid #38444d !important;
-    border-radius: 0 !important; /* 기본 blockquote 둥근 모서리 해제 */
+    border: 1px solid #38444d !important; /* 얇고 세련된 선 */
+    border-radius: 16px !important; /* 곡선형 둥근 모서리 */
     overflow: hidden !important;
     line-height: 1.3 !important;
     text-align: left !important;
@@ -32,14 +33,21 @@ blockquote.tw-ui header {
 blockquote.tw-ui article {
     display: flex !important;
     flex-direction: column !important;
-    padding: 12px 16px 12px 70px !important;
-    border-bottom: 1px solid #38444d !important;
+    padding: 12px 16px 16px 70px !important;
+    border-bottom: none !important; /* 기존 전체 가로지르는 선 제거 */
+    
+    /* 아바타 영역(왼쪽)을 제외하고 부분적으로만 가로지르는 세련된 구분선 */
+    background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
+    background-size: calc(100% - 86px) 1px !important; /* 70px(왼쪽여백) + 16px(오른쪽여백) 제외 */
+    background-position: bottom right 16px !important;
+    background-repeat: no-repeat !important;
+    
     position: relative !important;
     min-height: 80px !important;
 }
 
 blockquote.tw-ui article:last-child {
-    border-bottom: 0 !important;
+    background-image: none !important; /* 마지막 트윗은 구분선 없음 */
 }
 
 /* 프로필 이미지 가상 요소 */
@@ -67,21 +75,14 @@ blockquote.tw-ui article.friend::before {
     font-size: 24px !important;
 }
 
-/* 닉네임 영역 */
+/* 닉네임 영역 (아이디/시간 삭제) */
 blockquote.tw-ui article h3 {
-    margin: 0 !important;
+    margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 700 !important;
     display: flex !important;
     align-items: center !important;
     color: #f5f8fa !important;
-}
-
-blockquote.tw-ui article h3 span {
-    color: #8899a6 !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    margin-left: 4px !important;
 }
 
 /* 본문 */
