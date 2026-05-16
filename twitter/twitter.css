@@ -22,6 +22,12 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
+/* [필수] 전역 배지 강제 차단 */
+blockquote.tw-ui::before {
+    content: none !important;
+    display: none !important;
+}
+
 /* 헤더 */
 blockquote.tw-ui header {
     width: 94% !important;
@@ -64,13 +70,15 @@ blockquote.tw-ui article {
     background-position: bottom right 16px !important;
     background-repeat: no-repeat !important;
     position: relative !important;
+    max-width: 94% !important;
+    /* 가로폭 강제 제약 추가 */
 }
 
 blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 기본 규격 (트친용) */
+/* 프로필 이미지 기본 규격 (트친용 가상 요소) */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -92,7 +100,7 @@ blockquote.tw-ui article.npc::before {
     background-color: #22303c !important;
 }
 
-/* 트친 프로필 이미지 풀 (경로 유지) */
+/* 트친 프로필 이미지 풀 */
 blockquote.tw-ui article.friend.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
 }
@@ -113,7 +121,7 @@ blockquote.tw-ui article.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
-/* 닉네임 영역 (모든 트친/NPC 닉네임 컬러 흰색 통일 및 오측 여백 정리) */
+/* 닉네임 영역 */
 blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
@@ -123,31 +131,21 @@ blockquote.tw-ui article h3 {
     line-height: 1.2 !important;
     display: inline-flex !important;
     align-items: center !important;
-    padding-right: 24px !important;
+    padding-right: 40px !important;
+    /* 점세개 버튼 공간 확보 */
 }
 
-blockquote.tw-ui article.friend h3 {
-    color: #ffffff !important;
-}
-
-blockquote.tw-ui article.friend.p1 h3,
-blockquote.tw-ui article.friend.p2 h3,
-blockquote.tw-ui article.friend.p3 h3,
-blockquote.tw-ui article.friend.p4 h3,
-blockquote.tw-ui article.friend.p5 h3 {
-    color: #ffffff !important;
-}
-
-/* 닉네임 우측 상단 점 세 개 메뉴 버튼 */
-blockquote.tw-ui article h3::before {
+/* [해결안 1] 우측 상단 점 세 개 메뉴 버튼의 기준점을 article 박스로 강제 고정 */
+blockquote.tw-ui article::after {
     content: "⋯" !important;
     position: absolute !important;
     right: 16px !important;
-    top: 15px !important;
+    top: 14px !important;
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
     line-height: 1 !important;
+    z-index: 20 !important;
 }
 
 /* 비밀계정 자물쇠 */
@@ -158,9 +156,9 @@ blockquote.tw-ui article h3::after {
     opacity: 0.8;
 }
 
-/* [위치 전면 수정] 아이디 메타 데이터를 닉네임 '오른쪽'에 강제 배치 */
+/* 아이디 메타 데이터 배치 */
 blockquote.tw-ui article.npc h3::after {
-    content: "🔒 @secret_account · 1분" !important;
+    content: "🔒 @secret_account · 1분 전" !important;
     font-weight: 400 !important;
     color: #8899a6 !important;
     font-size: 13px !important;
@@ -175,25 +173,29 @@ blockquote.tw-ui article.friend h3::after {
     margin-left: 6px !important;
 }
 
-/* 본문 */
-blockquote.tw-ui article p {
-    margin: 0 0 8px 0 !important;
+/* 본문 영역 및 [해결안 2] 플랫폼 파서 생성 태그 이탈 방지 디펜스 */
+blockquote.tw-ui article p,
+blockquote.tw-ui article div,
+blockquote.tw-ui article span {
+    margin: 0 !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
     white-space: pre-wrap !important;
+    word-break: break-all !important;
+    /* 텍스트 강제 개행 */
     color: #e1e8ed !important;
     text-align: left !important;
     font-weight: 400 !important;
+    max-width: 100% !important;
+    /* 가로폭 제한 */
 }
 
-/* [신규 기능] 답글 달 때 쓰는 @닉네임 텍스트 요소를 파란색으로 변경하는 유사 선택자 우회 */
-blockquote.tw-ui article p::first-letter {
-    color: #e1e8ed !important;
+blockquote.tw-ui article p {
+    margin-bottom: 8px !important;
 }
 
-/* 인터랙션 바 수치 */
-blockquote.tw-ui article::after {
-    content: "💬 " attr(data-reply) "          ↻ " attr(data-rt) "          ♡ " attr(data-like) "          𝄘" !important;
+/* 인터랙션 바 수치 (기존 가상 요소 충돌 방지를 위해 하위 DOM 구조 독립 선언) */
+blockquote.tw-ui article footer {
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
@@ -215,4 +217,6 @@ blockquote.tw-ui::after {
     color: #8899a6 !important;
     border-top: 1px solid #38444d !important;
     box-sizing: border-box !important;
+    opacity: 1 !important;
+    font-style: normal !important;
 }
