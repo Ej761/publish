@@ -12,43 +12,44 @@
     width: 50%;
 }
 
-/* 뼈대 자체를 외부(CSS)에서 관리하는 마법의 <x> 태그 스타일 */
-x {
+/* 표준 태그인 blockquote를 핑크 말주머니로 변신시킵니다 */
+blockquote {
     display: block;
     background-color: #ff69b4; /* 핫핑크 */
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    padding: 30px;
-    border: 5px solid #fff;
-    border-radius: 30px;
-    margin: 20px auto;
-    width: fit-content;
-    min-width: 200px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    position: relative;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    padding: 30px !important;
+    border: 5px solid #fff !important;
+    border-radius: 30px !important;
+    margin: 20px auto !important;
+    width: fit-content !important;
+    min-width: 250px !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+    position: relative !important;
+    font-style: normal !important; /* 인용구 기본 기울임 해제 */
 }
 
-/* HTML 파일에는 없지만, CSS가 강제로 만들어넣는 '구조' (머리말) */
-x::before {
-    content: "🌸 AI MESSAGE 🌸";
-    display: block;
-    font-size: 12px;
-    background: white;
-    color: #ff69b4;
-    width: fit-content;
-    padding: 2px 15px;
-    border-radius: 50px;
-    margin: 0 auto 15px auto;
+/* 머리말 구조 */
+blockquote::before {
+    content: "🌸 AI MESSAGE 🌸" !important;
+    display: block !important;
+    font-size: 12px !important;
+    background: white !important;
+    color: #ff69b4 !important;
+    width: fit-content !important;
+    padding: 2px 15px !important;
+    border-radius: 50px !important;
+    margin: 0 auto 15px auto !important;
 }
 
-/* HTML 파일에는 없지만, CSS가 강제로 만들어넣는 '구조' (꼬리말) */
-x::after {
-    content: "Powered by Plaitoon Style";
-    display: block;
-    font-size: 10px;
-    margin-top: 15px;
-    opacity: 0.7;
-    font-style: italic;
+/* 꼬리말 구조 */
+blockquote::after {
+    content: "Powered by Plaitoon Style" !important;
+    display: block !important;
+    font-size: 10px !important;
+    margin-top: 15px !important;
+    opacity: 0.7 !important;
+    font-style: italic !important;
 }
