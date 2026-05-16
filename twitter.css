@@ -46,14 +46,13 @@ blockquote.tw-ui article {
     background-repeat: no-repeat !important;
 
     position: relative !important;
-    /* 프로필과 점 세 개의 공통 기준점 */
 }
 
 blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 가상 요소 (왼쪽 외곽에서 16px) */
+/* 프로필 이미지 가상 요소 (왼쪽 외곽 마진 16px) */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -85,21 +84,17 @@ blockquote.tw-ui article h3 {
     color: #ffffff !important;
     text-align: left !important;
     line-height: 1.2 !important;
-
-    /* 점 세 개 정렬 버그를 잡기 위해 h3 자체의 relative 속성 제거 */
     position: static !important;
-    padding-right: 32px !important;
-    /* 닉네임이 길어져도 오른쪽 점 세 개 영역을 침범하지 않도록 방어 */
+    padding-right: 20px !important;
+    /* 기존 32px에서 축소하여 우측 여백 균형 최적화 */
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 (오른쪽 외곽에서 정확히 16px 대칭 고정) */
+/* 닉네임 우측 상단 점 세 개 메뉴 (오른쪽 외곽 마진 16px로 좌측 프로필과 대칭) */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
     position: absolute !important;
     right: 16px !important;
-    /* 왼쪽 프로필 여백(16px)과 완전히 일치시켜 황금 밸런스 구현 */
     top: 15px !important;
-    /* 상단 패딩(14px)을 고려해 닉네임 텍스트 중심선에 안착 */
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
@@ -123,8 +118,8 @@ blockquote.tw-ui article p {
     color: #e1e8ed !important;
     text-align: left !important;
     font-weight: 400 !important;
-    padding-right: 16px !important;
-    /* 본문 우측 여백도 오른쪽 외곽선 마진과 통일 */
+    padding-right: 0 !important;
+    /* 이중 여백 제거로 본문 텍스트가 우측 16px 라인까지 꽉 차게 변경 */
 }
 
 /* 하단 인터랙션 메트릭 */
