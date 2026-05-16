@@ -199,8 +199,8 @@ blockquote.tw-ui span.article.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
-/* 닉네임 영역 (기존 h3 대체) */
-blockquote.tw-ui span.article strong.nick {
+/* 닉네임 영역 (클래스 제거) */
+blockquote.tw-ui span.article strong {
     display: block !important;
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
@@ -213,7 +213,7 @@ blockquote.tw-ui span.article strong.nick {
 }
 
 /* 닉네임 우측 상단 점 세 개 메뉴 */
-blockquote.tw-ui span.article strong.nick::before {
+blockquote.tw-ui span.article strong::before {
     content: "⋯" !important;
     position: absolute !important;
     right: 16px !important;
@@ -221,24 +221,21 @@ blockquote.tw-ui span.article strong.nick::before {
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: normal !important;
-    /* 굵기 해제 */
     line-height: 1 !important;
 }
 
 /* 비밀계정 자물쇠 */
-blockquote.tw-ui span.article strong.nick::after {
+blockquote.tw-ui span.article strong::after {
     content: "🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
     font-weight: normal !important;
-    /* 굵기 해제 */
     font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", system-ui, sans-serif !important;
-    /* 이모지 폰트셋 */
     opacity: 0.8 !important;
     display: inline-block !important;
 }
 
-/* 본문 (기존 p 대체) */
+/* 본문 */
 blockquote.tw-ui span.article span.desc {
     display: block !important;
     margin: 0 0 8px 0 !important;
