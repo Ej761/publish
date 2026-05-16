@@ -83,7 +83,7 @@ blockquote.tw-ui article h3 {
     text-align: left !important;
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 (누락되었던 부분 추가) */
+/* 닉네임 우측 상단 점 세 개 메뉴 */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
     position: absolute !important;
@@ -113,20 +113,16 @@ blockquote.tw-ui article p {
     /* 점세개 메뉴와 겹침 방지 */
 }
 
-/* 하단 인터랙션 메트릭 (아이콘 유지 + 정렬/너비 속성 추가) */
+/* 하단 인터랙션 메트릭 */
 blockquote.tw-ui article::after {
     content: "💬\a0" attr(data-reply) " ↻\a0" attr(data-rt) " ♡\a0" attr(data-like) " 𝄘" !important;
     display: block !important;
-    width: 100% !important;
-    max-width: 375px !important;
-    /* 자연스럽게 벌어지도록 너비 임계점 제한 */
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
 
-    /* 양끝 분산 정렬 핵심 코드 추가 */
-    text-align: justify !important;
-    text-align-last: justify !important;
+    /* 무시당하는 justify 대신 단어 간격을 강제로 벌리는 속성 적용 */
+    word-spacing: 48px !important;
 }
