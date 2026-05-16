@@ -101,7 +101,7 @@ blockquote.tw-ui article h3::after {
     opacity: 0.8;
 }
 
-/* 本문 */
+/* 본문 */
 blockquote.tw-ui article p {
     margin: 0 0 8px 0 !important;
     font-size: 14px !important;
@@ -112,17 +112,15 @@ blockquote.tw-ui article p {
     padding-right: 20px !important;
 }
 
-/* 하단 인터랙션 메트릭 (밀착형 분산 배치) */
+/* 하단 인터랙션 메트릭 (아이콘+숫자 강제 밀착 버전) */
 blockquote.tw-ui article::after {
-    /* 아이콘과 숫자 사이 공백 제거, 그룹 간 공백은 문자열 내 실제 띄어쓰기로 조절 */
-    content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
+    /* \a0를 통해 아이콘과 숫자를 한 덩어리로 묶고, 그룹 사이에만 여백 주입 */
+    content: "💬\a0" attr(data-reply) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0↻\a0" attr(data-rt) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0♡\a0" attr(data-like) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
-
-    /* 고정 공백 렌더링 활성화 */
-    white-space: pre !important;
+    white-space: nowrap !important;
 }
