@@ -84,9 +84,17 @@ blockquote.tw-ui span.article::before {
     background-position: center !important;
 }
 
-/* NPC 프로필 기본 가상 요소 제거 */
+/* NPC 프로필 기본 가상 요소를 디폴트 까만 박스로 */
 blockquote.tw-ui span.article.npc::before {
-    display: none !important;
+    content: "" !important;
+    position: absolute !important;
+    left: 16px !important;
+    top: 14px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background-color: #000000 !important;
+    display: block !important;
 }
 
 /* 플랫폼 이미지 첨부 위젯 부모 컨테이너 강제 제약 및 프로필화 */
@@ -244,7 +252,7 @@ blockquote.tw-ui span.article span.desc span.mention {
 
 /* 하단 인터랙션 메트릭 */
 blockquote.tw-ui span.article::after {
-    content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
+    content: "\01F4AC" attr(data-reply) "          \0021BB" attr(data-rt) "          \002661" attr(data-like) "          \01D118" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
@@ -263,7 +271,7 @@ blockquote.tw-ui::after {
     padding: 10px 16px !important;
     text-align: right !important;
     font-size: 11px !important;
-    color: rgba(136, 153, 166, 0.10) !important;
+    color: rgba(136, 153, 166, 0.15) !important;
     border-top: 1px solid #38444d !important;
     box-sizing: border-box !important;
     font-style: normal !important;
