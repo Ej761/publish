@@ -4,10 +4,13 @@
 /* 메인 컨테이너 */
 blockquote.tw-ui {
     display: block !important;
-    width: 100% !important;
-    max-width: none !important;
+    width: 90% !important;
+    /* 가로 폭 90%로 수정 */
+    max-width: 598px !important;
+    /* 실제 트위터 피드 너비 임계점 반영 */
     box-sizing: border-box !important;
-    margin: 16px 0 !important;
+    margin: 16px auto !important;
+    /* 중앙 정렬 반영 */
     background: #15202b !important;
     color: #e7edf3 !important;
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
@@ -52,7 +55,7 @@ blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 가상 요소 (왼쪽 외곽 마진 16px) */
+/* 프로필 이미지 가상 요소 */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -86,10 +89,9 @@ blockquote.tw-ui article h3 {
     line-height: 1.2 !important;
     position: static !important;
     padding-right: 20px !important;
-    /* 기존 32px에서 축소하여 우측 여백 균형 최적화 */
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 (오른쪽 외곽 마진 16px로 좌측 프로필과 대칭) */
+/* 닉네임 우측 상단 점 세 개 메뉴 */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
     position: absolute !important;
@@ -119,7 +121,6 @@ blockquote.tw-ui article p {
     text-align: left !important;
     font-weight: 400 !important;
     padding-right: 0 !important;
-    /* 이중 여백 제거로 본문 텍스트가 우측 16px 라인까지 꽉 차게 변경 */
 }
 
 /* 하단 인터랙션 메트릭 */
