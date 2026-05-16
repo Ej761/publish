@@ -1,7 +1,7 @@
 /* Twitter UI */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 
-/* 메인 컨테이너 (바깥 틀은 100% 꽉 채움) */
+/* 메인 컨테이너 */
 blockquote.tw-ui {
     display: block !important;
     width: 100% !important;
@@ -22,39 +22,53 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
-/* 헤더 (내부 콘텐츠 영역 94% 확장 및 중앙 정렬) */
+/* [필수] 전역 blockquote::before (AI MESSAGE 배지) 강제 무력화 */
+blockquote.tw-ui::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* 헤더 */
 blockquote.tw-ui header {
     width: 94% !important;
-    /* 90%에서 94%로 확장하여 시원한 너비 확보 */
     margin: 0 auto !important;
-    /* 중앙 정렬 */
-    height: 53px !important;
+    height: 42px !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     padding: 0 16px !important;
     border-bottom: 1px solid #38444d !important;
-    font-size: 18px !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     color: #ffffff !important;
-    box-sizing: border-box !important;
 }
 
-/* 트윗 개별 박스 (내부 콘텐츠 영역 94% 확장 및 중앙 정렬) */
+/* 헤더 내 트위터 로고 */
+blockquote.tw-ui header::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 8px !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/blue_bird.webp') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+}
+
+/* 트윗 개별 박스 */
 blockquote.tw-ui article {
     display: flex !important;
     flex-direction: column !important;
     width: 94% !important;
-    /* 90%에서 94%로 확장하여 시원한 너비 확보 */
     margin: 0 auto !important;
-    /* 중앙 정렬 */
     padding: 14px 16px 14px 68px !important;
     box-sizing: border-box !important;
-
     background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
     background-size: calc(100% - 84px) 1px !important;
     background-position: bottom right 16px !important;
     background-repeat: no-repeat !important;
-
     position: relative !important;
 }
 
@@ -62,7 +76,7 @@ blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 가상 요소 */
+/* 프로필 이미지 기본 규격 (트친 전용 가상 요소) */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -70,20 +84,49 @@ blockquote.tw-ui article::before {
     top: 14px !important;
     width: 40px !important;
     height: 40px !important;
-    border-radius: 50% !important;
+    border-radius: 8px !important;
     background-color: #22303c !important;
     background-size: cover !important;
     background-position: center !important;
 }
 
+/* NPC 프로필 가상 요소 제거 */
 blockquote.tw-ui article.npc::before {
-    background-image: url('https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png') !important;
+    display: none !important;
 }
 
-/* 친구 프로필: 골드 서클 */
-blockquote.tw-ui article.friend::before {
-    background-color: #f5a623 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+/* [파싱 보완] 마크다운 문법으로 자동 렌더링된 img 태그 강제 스타일링 */
+blockquote.tw-ui article img {
+    position: absolute !important;
+    left: 16px !important;
+    top: 14px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    object-fit: cover !important;
+    background-color: #22303c !important;
+    z-index: 10 !important;
+}
+
+/* 트친 프로필 이미지 풀 */
+blockquote.tw-ui article.friend.p1::before {
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
+}
+
+blockquote.tw-ui article.friend.p2::before {
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
+}
+
+blockquote.tw-ui article.friend.p3::before {
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
+}
+
+blockquote.tw-ui article.friend.p4::before {
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
+}
+
+blockquote.tw-ui article.friend.p5::before {
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
 /* 닉네임 영역 */
@@ -140,4 +183,20 @@ blockquote.tw-ui article::after {
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
     white-space: pre !important;
+}
+
+/* 카피라이트 */
+blockquote.tw-ui::after {
+    content: "© 2026 Shybee (EJ) on Plaitoon" !important;
+    display: block !important;
+    width: 94% !important;
+    margin: 0 auto !important;
+    padding: 10px 16px !important;
+    text-align: right !important;
+    font-size: 11px !important;
+    color: #8899a6 !important;
+    border-top: 1px solid #38444d !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    font-style: normal !important;
 }
