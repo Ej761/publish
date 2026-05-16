@@ -52,13 +52,13 @@ blockquote.tw-ui header::before {
     height: 20px !important;
     margin-right: 8px !important;
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/blue_bird.webp') !important;
-    background-repeat: no-repeat !important;
+    background-repeat: no-repeat !repeat;
     background-position: center !important;
     background-size: contain !important;
 }
 
-/* 트윗 개별 박스 */
-blockquote.tw-ui article {
+/* 트윗 개별 박스 공통 (.tw-item 클래스로 통합 제어) */
+blockquote.tw-ui .tw-item {
     display: block !important;
     width: 94% !important;
     margin: 0 auto !important;
@@ -73,12 +73,12 @@ blockquote.tw-ui article {
     overflow: hidden !important;
 }
 
-blockquote.tw-ui article:last-child {
+blockquote.tw-ui .tw-item:last-child {
     background-image: none !important;
 }
 
 /* 프로필 이미지 기본 규격 (트친용 가상 요소) */
-blockquote.tw-ui article::before {
+blockquote.tw-ui .tw-item::before {
     content: "" !important;
     position: absolute !important;
     left: 16px !important;
@@ -94,16 +94,16 @@ blockquote.tw-ui article::before {
 }
 
 /* NPC 프로필 기본 가상 배경 제거 */
-blockquote.tw-ui article.npc::before {
+blockquote.tw-ui .tw-item.npc::before {
     background-image: none !important;
     background-color: #22303c !important;
 }
 
 /* 플랫폼 치환 이미지 컴포넌트 강제 압착 및 프로필화 */
-blockquote.tw-ui article.npc img,
-blockquote.tw-ui article.npc div:has(img),
-blockquote.tw-ui article.npc span:has(img),
-blockquote.tw-ui article.npc p:has(img) {
+blockquote.tw-ui .tw-item.npc img,
+blockquote.tw-ui .tw-item.npc div:has(img),
+blockquote.tw-ui .tw-item.npc span:has(img),
+blockquote.tw-ui .tw-item.npc p:has(img) {
     position: absolute !important;
     left: 16px !important;
     top: 14px !important;
@@ -115,14 +115,14 @@ blockquote.tw-ui article.npc p:has(img) {
     z-index: 10 !important;
 }
 
-blockquote.tw-ui article.npc img {
+blockquote.tw-ui .tw-item.npc img {
     object-fit: cover !important;
 }
 
 /* 위젯 내부 불필요한 레이아웃 파괴 */
-blockquote.tw-ui article.npc button,
-blockquote.tw-ui article.npc svg,
-blockquote.tw-ui article.npc div:has(img)>div:not(:has(img)) {
+blockquote.tw-ui .tw-item.npc button,
+blockquote.tw-ui .tw-item.npc svg,
+blockquote.tw-ui .tw-item.npc div:has(img)>div:not(:has(img)) {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
@@ -130,28 +130,28 @@ blockquote.tw-ui article.npc div:has(img)>div:not(:has(img)) {
 }
 
 /* 트친 프로필 이미지 풀 */
-blockquote.tw-ui article.friend.p1::before {
+blockquote.tw-ui .tw-item.friend.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p2::before {
+blockquote.tw-ui .tw-item.friend.p2::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p3::before {
+blockquote.tw-ui .tw-item.friend.p3::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p4::before {
+blockquote.tw-ui .tw-item.friend.p4::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p5::before {
+blockquote.tw-ui .tw-item.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
 /* 닉네임 영역 */
-blockquote.tw-ui article h3 {
+blockquote.tw-ui .tw-item h3 {
     position: relative !important;
     display: block !important;
     width: 100% !important;
@@ -166,7 +166,7 @@ blockquote.tw-ui article h3 {
 }
 
 /* 점 세 개 버튼 우측 상단 고정 */
-blockquote.tw-ui article h3::before {
+blockquote.tw-ui .tw-item h3::before {
     content: "⋯" !important;
     position: absolute !important;
     right: 0 !important;
@@ -178,8 +178,8 @@ blockquote.tw-ui article h3::before {
     z-index: 15 !important;
 }
 
-/* [해결안] 메타데이터 완전 삭제, 비밀계정 자물쇠만 이름 뒤에 노출 */
-blockquote.tw-ui article h3::after {
+/* 메타데이터 완전 삭제, 비밀계정 자물쇠만 이름 뒤에 노출 */
+blockquote.tw-ui .tw-item h3::after {
     content: "🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
@@ -187,9 +187,9 @@ blockquote.tw-ui article h3::after {
 }
 
 /* 본문 영역 */
-blockquote.tw-ui article p,
-blockquote.tw-ui article div,
-blockquote.tw-ui article span {
+blockquote.tw-ui .tw-item p,
+blockquote.tw-ui .tw-item div,
+blockquote.tw-ui .tw-item span {
     margin: 0 !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
@@ -202,12 +202,12 @@ blockquote.tw-ui article span {
     display: block !important;
 }
 
-blockquote.tw-ui article p {
+blockquote.tw-ui .tw-item p {
     margin-bottom: 8px !important;
 }
 
 /* 인터랙션 바 */
-blockquote.tw-ui article footer {
+blockquote.tw-ui .tw-item footer {
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
