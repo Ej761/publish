@@ -218,7 +218,7 @@ blockquote.tw-ui span.article strong.nick::before {
 
 /* 비밀계정 자물쇠 */
 blockquote.tw-ui span.article strong.nick::after {
-    content: "🔒" !important;
+    content: "\1F512" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
     opacity: 0.8;
@@ -263,9 +263,8 @@ blockquote.tw-ui::after {
     padding: 10px 16px !important;
     text-align: right !important;
     font-size: 11px !important;
-    color: #8899a6 !important;
+    color: rgba(136, 153, 166, 0.10) !important;
     border-top: 1px solid #38444d !important;
     box-sizing: border-box !important;
-    opacity: 0.25 !important;
     font-style: normal !important;
 }
