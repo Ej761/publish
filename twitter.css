@@ -20,7 +20,6 @@ blockquote.tw-ui {
     font-style: normal !important;
     box-shadow: none !important;
     letter-spacing: -0.3px !important;
-    /* 전체 자간 조정을 통해 투박함 해소 */
 }
 
 /* 헤더 */
@@ -77,24 +76,30 @@ blockquote.tw-ui article.friend::before {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 닉네임 영역 */
+/* 닉네임 영역 (기준점 설정) */
 blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 600 !important;
-    /* 700에서 600으로 낮춰 두꺼운 느낌 제거 */
     color: #ffffff !important;
     text-align: left !important;
     line-height: 1.2 !important;
+
+    position: relative !important;
+    /* 점 세 개 정렬을 위한 기준점 락인 */
+    padding-right: 20px !important;
+    /* 닉네임 길어질 때 점 세 개 점령 방지 */
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 (모바일 정렬 버그 수정) */
+/* 닉네임 우측 상단 점 세 개 메뉴 (위치 수정) */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
     position: absolute !important;
-    right: 16px !important;
-    top: 17px !important;
-    /* 14px에서 17px로 내려 닉네임 텍스트와 수평 정렬 일치 */
+    right: 0 !important;
+    /* article 끝이 아니라 h3 라인 우측 끝으로 밀착 */
+    top: 50% !important;
+    /* 닉네임 글자 높이 기준 정확히 정중앙 정렬 */
+    transform: translateY(-50%) !important;
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
@@ -116,19 +121,17 @@ blockquote.tw-ui article p {
     white-space: pre-wrap !important;
     color: #e1e8ed !important;
     text-align: left !important;
-    padding-right: 24px !important;
-    /* 본문이 점세개 메뉴를 침범하지 않도록 여백 확보 */
     font-weight: 400 !important;
 }
 
 /* 하단 인터랙션 메트릭 */
 blockquote.tw-ui article::after {
-    content: "💬\a0" attr(data-reply) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0↻\a0" attr(data-rt) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0♡\a0" attr(data-like) "\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0𝄘" !important;
+    content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
-    white-space: nowrap !important;
+    white-space: pre !important;
 }
