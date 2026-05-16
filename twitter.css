@@ -106,7 +106,7 @@ blockquote.tw-ui article p {
 
 /* 하단 인터랙션 메트릭 (전체 동적화 및 리트윗 유지) */
 blockquote.tw-ui article::after {
-    content: "💬 " attr(data-reply) "      ⇄ " attr(data-rt) "      ♥ " attr(data-like) !important;
+    content: "💬\a0" attr(data-reply) " ↻\a0" attr(data-rt) " ♡\a0" attr(data-like) " 𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
