@@ -220,16 +220,22 @@ blockquote.tw-ui span.article strong.nick::before {
     top: 15px !important;
     color: #8899a6 !important;
     font-size: 16px !important;
-    font-weight: bold !important;
+    font-weight: normal !important;
+    /* 굵기 해제 */
     line-height: 1 !important;
 }
 
 /* 비밀계정 자물쇠 */
 blockquote.tw-ui span.article strong.nick::after {
-    content: "\1F512" !important;
+    content: "🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
-    opacity: 0.8;
+    font-weight: normal !important;
+    /* 굵기 해제 */
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", system-ui, sans-serif !important;
+    /* 이모지 폰트셋 */
+    opacity: 0.8 !important;
+    display: inline-block !important;
 }
 
 /* 본문 (기존 p 대체) */
@@ -252,7 +258,7 @@ blockquote.tw-ui span.article span.desc span.mention {
 
 /* 하단 인터랙션 메트릭 */
 blockquote.tw-ui span.article::after {
-    content: "\01F4AC" attr(data-reply) "          \0021BB" attr(data-rt) "          \002661" attr(data-like) "          \01D118" !important;
+    content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
