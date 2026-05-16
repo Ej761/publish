@@ -22,12 +22,6 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
-/* [필수] 전역 blockquote::before (AI MESSAGE 배지) 강제 무력화 */
-blockquote.tw-ui::before {
-    content: none !important;
-    display: none !important;
-}
-
 /* 헤더 */
 blockquote.tw-ui header {
     width: 94% !important;
@@ -90,22 +84,49 @@ blockquote.tw-ui article::before {
     background-position: center !important;
 }
 
-/* NPC 프로필 가상 요소 제거 */
+/* NPC 프로필 기본 가상 요소 제거 */
 blockquote.tw-ui article.npc::before {
     display: none !important;
 }
 
-/* [파싱 보완] 마크다운 문법으로 자동 렌더링된 img 태그 강제 스타일링 */
-blockquote.tw-ui article img {
+/* [파싱 보완] 플랫폼 이미지 첨부 위젯 부모 컨테이너 강제 제약 및 프로필화 */
+blockquote.tw-ui article.npc>img,
+blockquote.tw-ui article.npc>div:has(img),
+blockquote.tw-ui article.npc>span:has(img),
+blockquote.tw-ui article.npc>p:has(img),
+blockquote.tw-ui article.npc>a:has(img) {
     position: absolute !important;
     left: 16px !important;
     top: 14px !important;
     width: 40px !important;
     height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     border-radius: 8px !important;
-    object-fit: cover !important;
-    background-color: #22303c !important;
+    overflow: hidden !important;
     z-index: 10 !important;
+    background-color: #22303c !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 위젯 내부 이미지 무조건 풀 스크린화 */
+blockquote.tw-ui article.npc img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: static !important;
+}
+
+/* 이미지 우측에 강제 생성되는 플랫폼 공유 버튼 및 메타 요소 완전 박멸 */
+blockquote.tw-ui article.npc button,
+blockquote.tw-ui article.npc [class*="share"],
+blockquote.tw-ui article.npc [class*="button"],
+blockquote.tw-ui article.npc div:not(:has(img)) h3~div {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
 }
 
 /* 트친 프로필 이미지 풀 */
@@ -185,7 +206,7 @@ blockquote.tw-ui article::after {
     white-space: pre !important;
 }
 
-/* 카피라이트 */
+/* 카피라이트 고정 */
 blockquote.tw-ui::after {
     content: "© 2026 Shybee (EJ) on Plaitoon" !important;
     display: block !important;
