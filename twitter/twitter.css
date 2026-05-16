@@ -22,7 +22,7 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
-/* [필수] 전역 배지 강제 차단 */
+/* 전역 배지 강제 차단 */
 blockquote.tw-ui::before {
     content: none !important;
     display: none !important;
@@ -59,8 +59,7 @@ blockquote.tw-ui header::before {
 
 /* 트윗 개별 박스 */
 blockquote.tw-ui article {
-    display: flex !important;
-    flex-direction: column !important;
+    display: block !important;
     width: 94% !important;
     margin: 0 auto !important;
     padding: 14px 16px 14px 68px !important;
@@ -71,7 +70,7 @@ blockquote.tw-ui article {
     background-repeat: no-repeat !important;
     position: relative !important;
     max-width: 94% !important;
-    /* 가로폭 강제 제약 추가 */
+    overflow: hidden !important;
 }
 
 blockquote.tw-ui article:last-child {
@@ -94,10 +93,40 @@ blockquote.tw-ui article::before {
     z-index: 5 !important;
 }
 
-/* NPC 프로필 백그라운드 */
+/* NPC 프로필 기본 가상 배경 제거 */
 blockquote.tw-ui article.npc::before {
     background-image: none !important;
     background-color: #22303c !important;
+}
+
+/* 플랫폼 치환 이미지 컴포넌트 강제 압착 및 프로필화 */
+blockquote.tw-ui article.npc img,
+blockquote.tw-ui article.npc div:has(img),
+blockquote.tw-ui article.npc span:has(img),
+blockquote.tw-ui article.npc p:has(img) {
+    position: absolute !important;
+    left: 16px !important;
+    top: 14px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 10 !important;
+}
+
+blockquote.tw-ui article.npc img {
+    object-fit: cover !important;
+}
+
+/* 위젯 내부 불필요한 레이아웃 파괴 */
+blockquote.tw-ui article.npc button,
+blockquote.tw-ui article.npc svg,
+blockquote.tw-ui article.npc div:has(img)>div:not(:has(img)) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
 }
 
 /* 트친 프로필 이미지 풀 */
@@ -123,57 +152,41 @@ blockquote.tw-ui article.friend.p5::before {
 
 /* 닉네임 영역 */
 blockquote.tw-ui article h3 {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 600 !important;
     color: #ffffff !important;
     text-align: left !important;
     line-height: 1.2 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    padding-right: 40px !important;
-    /* 점세개 버튼 공간 확보 */
+    padding-right: 30px !important;
+    box-sizing: border-box !important;
 }
 
-/* [해결안 1] 우측 상단 점 세 개 메뉴 버튼의 기준점을 article 박스로 강제 고정 */
-blockquote.tw-ui article::after {
+/* 점 세 개 버튼 우측 상단 고정 */
+blockquote.tw-ui article h3::before {
     content: "⋯" !important;
     position: absolute !important;
-    right: 16px !important;
-    top: 14px !important;
+    right: 0 !important;
+    top: 0 !important;
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
     line-height: 1 !important;
-    z-index: 20 !important;
+    z-index: 15 !important;
 }
 
-/* 비밀계정 자물쇠 */
+/* [해결안] 메타데이터 완전 삭제, 비밀계정 자물쇠만 이름 뒤에 노출 */
 blockquote.tw-ui article h3::after {
     content: "🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
-    opacity: 0.8;
+    opacity: 0.8 !important;
 }
 
-/* 아이디 메타 데이터 배치 */
-blockquote.tw-ui article.npc h3::after {
-    content: "🔒 @secret_account · 1분 전" !important;
-    font-weight: 400 !important;
-    color: #8899a6 !important;
-    font-size: 13px !important;
-    margin-left: 6px !important;
-}
-
-blockquote.tw-ui article.friend h3::after {
-    content: "🔒 @friend_user · 방금 전" !important;
-    font-weight: 400 !important;
-    color: #8899a6 !important;
-    font-size: 13px !important;
-    margin-left: 6px !important;
-}
-
-/* 본문 영역 및 [해결안 2] 플랫폼 파서 생성 태그 이탈 방지 디펜스 */
+/* 본문 영역 */
 blockquote.tw-ui article p,
 blockquote.tw-ui article div,
 blockquote.tw-ui article span {
@@ -182,19 +195,18 @@ blockquote.tw-ui article span {
     line-height: 1.5 !important;
     white-space: pre-wrap !important;
     word-break: break-all !important;
-    /* 텍스트 강제 개행 */
     color: #e1e8ed !important;
     text-align: left !important;
     font-weight: 400 !important;
     max-width: 100% !important;
-    /* 가로폭 제한 */
+    display: block !important;
 }
 
 blockquote.tw-ui article p {
     margin-bottom: 8px !important;
 }
 
-/* 인터랙션 바 수치 (기존 가상 요소 충돌 방지를 위해 하위 DOM 구조 독립 선언) */
+/* 인터랙션 바 */
 blockquote.tw-ui article footer {
     display: block !important;
     color: #8899a6 !important;
