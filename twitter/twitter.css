@@ -105,16 +105,20 @@ blockquote.tw-ui article.npc>a:has(img) {
     border-radius: 8px !important;
     overflow: hidden !important;
     z-index: 10 !important;
-    background-color: #22303c !important;
+    background-color: #000000 !important;
+    /* 이미지 로드 실패 시 노출될 까만색 배경 */
     border: none !important;
     box-shadow: none !important;
+    display: block !important;
 }
 
 /* 래퍼 내부에 존재할 수 있는 모든 중간 태그들의 패딩/마진 완전 리셋 */
 blockquote.tw-ui article.npc :has(img) {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
@@ -127,14 +131,22 @@ blockquote.tw-ui article.npc img {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
     object-fit: cover !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 8px !important;
+    display: block !important;
+    /* 엑박 아이콘과 깨진 문자열을 완전히 숨겨서 배경의 까만색만 보이게 만드는 핵심 속성 */
+    visibility: hidden !important;
+}
+
+/* 이미지가 정상적으로 로드되었을 때만 화면에 표시하도록 강제 전환 */
+blockquote.tw-ui article.npc img[src] {
+    visibility: visible !important;
 }
 
 /* 프로필 이미지 박스 내부의 이미지 외 모든 요소(공유 버튼, 오버레이 등) 강제 제거 */
