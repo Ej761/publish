@@ -38,6 +38,7 @@ blockquote.tw-ui header {
     color: #ffffff !important;
 }
 
+/* 헤더 내 트위터 로고 */
 blockquote.tw-ui header::before {
     content: "" !important;
     display: inline-block !important;
@@ -50,8 +51,8 @@ blockquote.tw-ui header::before {
     background-size: contain !important;
 }
 
-/* 트윗 개별 박스 (블록 구조 롤백) */
-blockquote.tw-ui article {
+/* 트윗 개별 박스 */
+blockquote.tw-ui span.article {
     display: flex !important;
     flex-direction: column !important;
     width: 94% !important;
@@ -65,12 +66,12 @@ blockquote.tw-ui article {
     position: relative !important;
 }
 
-blockquote.tw-ui article:last-child {
+blockquote.tw-ui span.article:last-child {
     background-image: none !important;
 }
 
 /* 프로필 이미지 기본 규격 (트친 전용) */
-blockquote.tw-ui article::before {
+blockquote.tw-ui span.article::before {
     content: "" !important;
     position: absolute !important;
     left: 16px !important;
@@ -84,7 +85,7 @@ blockquote.tw-ui article::before {
 }
 
 /* NPC 프로필 기본 가상 요소를 디폴트 까만 박스로 */
-blockquote.tw-ui article.npc::before {
+blockquote.tw-ui span.article.npc::before {
     content: "" !important;
     position: absolute !important;
     left: 16px !important;
@@ -97,11 +98,11 @@ blockquote.tw-ui article.npc::before {
 }
 
 /* 플랫폼 이미지 첨부 위젯 부모 컨테이너 강제 제약 및 프로필화 */
-blockquote.tw-ui article.npc>img,
-blockquote.tw-ui article.npc>div:has(img),
-blockquote.tw-ui article.npc>span:has(img),
-blockquote.tw-ui article.npc>p:has(img),
-blockquote.tw-ui article.npc>a:has(img) {
+blockquote.tw-ui span.article.npc>img,
+blockquote.tw-ui span.article.npc>div:has(img),
+blockquote.tw-ui span.article.npc>span:has(img),
+blockquote.tw-ui span.article.npc>p:has(img),
+blockquote.tw-ui span.article.npc>a:has(img) {
     position: absolute !important;
     left: 16px !important;
     top: 14px !important;
@@ -113,13 +114,14 @@ blockquote.tw-ui article.npc>a:has(img) {
     overflow: hidden !important;
     z-index: 10 !important;
     background-color: #000000 !important;
+    /* 이미지 로드 실패 시 까만색 배경 */
     border: none !important;
     box-shadow: none !important;
     display: block !important;
 }
 
 /* 래퍼 내부 중간 태그 패딩/마진 리셋 */
-blockquote.tw-ui article.npc :has(img) {
+blockquote.tw-ui span.article.npc :has(img) {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -133,7 +135,7 @@ blockquote.tw-ui article.npc :has(img) {
 }
 
 /* 위젯 내부 이미지 풀 스크린화 및 절대 위치 */
-blockquote.tw-ui article.npc img {
+blockquote.tw-ui span.article.npc img {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -149,25 +151,26 @@ blockquote.tw-ui article.npc img {
     visibility: hidden !important;
 }
 
-blockquote.tw-ui article.npc img[src] {
+/* 이미지가 정상적으로 로드되었을 때만 화면에 표시 */
+blockquote.tw-ui span.article.npc img[src] {
     visibility: visible !important;
 }
 
 /* 프로필 이미지 박스 내부의 이미지 외 모든 요소 제거 */
-blockquote.tw-ui article.npc>div:has(img) *:not(img),
-blockquote.tw-ui article.npc>span:has(img) *:not(img),
-blockquote.tw-ui article.npc>p:has(img) *:not(img),
-blockquote.tw-ui article.npc>a:has(img) *:not(img) {
+blockquote.tw-ui span.article.npc>div:has(img) *:not(img),
+blockquote.tw-ui span.article.npc>span:has(img) *:not(img),
+blockquote.tw-ui span.article.npc>p:has(img) *:not(img),
+blockquote.tw-ui span.article.npc>a:has(img) *:not(img) {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
 }
 
 /* 트윗 박스 내에 강제로 삽입되는 플랫폼 공유용 요소 숨김 */
-blockquote.tw-ui article.npc button,
-blockquote.tw-ui article.npc svg,
-blockquote.tw-ui article.npc [class*="share"],
-blockquote.tw-ui article.npc [class*="button"] {
+blockquote.tw-ui span.article.npc button,
+blockquote.tw-ui span.article.npc svg,
+blockquote.tw-ui span.article.npc [class*="share"],
+blockquote.tw-ui span.article.npc [class*="button"] {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
@@ -176,28 +179,28 @@ blockquote.tw-ui article.npc [class*="button"] {
 }
 
 /* 트친 프로필 이미지 풀 */
-blockquote.tw-ui article.friend.p1::before {
+blockquote.tw-ui span.article.friend.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p2::before {
+blockquote.tw-ui span.article.friend.p2::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p3::before {
+blockquote.tw-ui span.article.friend.p3::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p4::before {
+blockquote.tw-ui span.article.friend.p4::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
 }
 
-blockquote.tw-ui article.friend.p5::before {
+blockquote.tw-ui span.article.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
-/* 닉네임 영역 (h3 블록 태그 복구 및 클래스 의존성 제거) */
-blockquote.tw-ui article h3 {
+/* 닉네임 영역 (클래스 제거) */
+blockquote.tw-ui span.article strong {
     display: block !important;
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
@@ -210,7 +213,7 @@ blockquote.tw-ui article h3 {
 }
 
 /* 닉네임 우측 상단 점 세 개 메뉴 */
-blockquote.tw-ui article h3::before {
+blockquote.tw-ui span.article strong::before {
     content: "⋯" !important;
     position: absolute !important;
     right: 16px !important;
@@ -218,12 +221,11 @@ blockquote.tw-ui article h3::before {
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: normal !important;
-    /* 굵기 해제로 렌더링 누락 방지 */
     line-height: 1 !important;
 }
 
 /* 비밀계정 자물쇠 */
-blockquote.tw-ui article h3::after {
+blockquote.tw-ui span.article strong::after {
     content: "🔒" !important;
     margin-left: 4px !important;
     font-size: 12px !important;
@@ -233,8 +235,8 @@ blockquote.tw-ui article h3::after {
     display: inline-block !important;
 }
 
-/* 본문 (p 태그 복구) */
-blockquote.tw-ui article p {
+/* 본문 */
+blockquote.tw-ui span.article span.desc {
     display: block !important;
     margin: 0 0 8px 0 !important;
     font-size: 14px !important;
@@ -246,13 +248,13 @@ blockquote.tw-ui article p {
     padding-right: 0 !important;
 }
 
-/* 본문 내 멘션 링크 (@닉네임) */
-blockquote.tw-ui article p span.mention {
+/* 본문 내 멘션 링크 (@닉네임) 색상 지정 */
+blockquote.tw-ui span.article span.desc span.mention {
     color: #1da1f2 !important;
 }
 
 /* 하단 인터랙션 메트릭 */
-blockquote.tw-ui article::after {
+blockquote.tw-ui span.article::after {
     content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
