@@ -14,7 +14,6 @@ blockquote.tw-ui {
     border-radius: 16px !important;
     overflow: hidden !important;
     line-height: 1.5 !important;
-    /* 행간 확장으로 답답함 해소 */
     text-align: left !important;
     padding: 0 !important;
     font-style: normal !important;
@@ -38,7 +37,6 @@ blockquote.tw-ui article {
     display: flex !important;
     flex-direction: column !important;
     padding: 14px 16px 14px 68px !important;
-    /* 여백 밸런스 조정 */
 
     background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
     background-size: calc(100% - 84px) 1px !important;
@@ -59,7 +57,6 @@ blockquote.tw-ui article::before {
     left: 16px !important;
     top: 14px !important;
     width: 40px !important;
-    /* 48px에서 40px로 축소하여 세련되게 조정 */
     height: 40px !important;
     border-radius: 50% !important;
     background-color: #22303c !important;
@@ -71,7 +68,7 @@ blockquote.tw-ui article.npc::before {
     background-image: url('https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png') !important;
 }
 
-/* 친구 프로필: 이모지 대신 골드 서클로 고급화 */
+/* 친구 프로필: 골드 서클 */
 blockquote.tw-ui article.friend::before {
     background-color: #f5a623 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -84,6 +81,17 @@ blockquote.tw-ui article h3 {
     font-weight: 700 !important;
     color: #ffffff !important;
     text-align: left !important;
+}
+
+/* 닉네임 우측 상단 점 세 개 메뉴 (누락되었던 부분 추가) */
+blockquote.tw-ui article h3::before {
+    content: "⋯" !important;
+    position: absolute !important;
+    right: 16px !important;
+    top: 14px !important;
+    color: #8899a6 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
 }
 
 blockquote.tw-ui article h3::after {
@@ -100,17 +108,25 @@ blockquote.tw-ui article p {
     line-height: 1.5 !important;
     white-space: pre-wrap !important;
     color: #e1e8ed !important;
-    /* 가독성 상향 */
     text-align: left !important;
+    padding-right: 20px !important;
+    /* 점세개 메뉴와 겹침 방지 */
 }
 
-/* 하단 인터랙션 메트릭 (전체 동적화 및 리트윗 유지) */
+/* 하단 인터랙션 메트릭 (아이콘 유지 + 정렬/너비 속성 추가) */
 blockquote.tw-ui article::after {
     content: "💬\a0" attr(data-reply) " ↻\a0" attr(data-rt) " ♡\a0" attr(data-like) " 𝄘" !important;
     display: block !important;
+    width: 100% !important;
+    max-width: 375px !important;
+    /* 자연스럽게 벌어지도록 너비 임계점 제한 */
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
+
+    /* 양끝 분산 정렬 핵심 코드 추가 */
+    text-align: justify !important;
+    text-align-last: justify !important;
 }
