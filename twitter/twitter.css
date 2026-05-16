@@ -137,6 +137,28 @@ blockquote.tw-ui article.npc img {
     border-radius: 8px !important;
 }
 
+/* 프로필 이미지 박스 내부의 이미지 외 모든 요소(공유 버튼, 오버레이 등) 강제 제거 */
+blockquote.tw-ui article.npc>div:has(img) *:not(img),
+blockquote.tw-ui article.npc>span:has(img) *:not(img),
+blockquote.tw-ui article.npc>p:has(img) *:not(img),
+blockquote.tw-ui article.npc>a:has(img) *:not(img) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 트윗 박스 내에 강제로 삽입되는 플랫폼 공유용 요소 완전 숨김 */
+blockquote.tw-ui article.npc button,
+blockquote.tw-ui article.npc svg,
+blockquote.tw-ui article.npc [class*="share"],
+blockquote.tw-ui article.npc [class*="button"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
 /* 트친 프로필 이미지 풀 */
 blockquote.tw-ui article.friend.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
