@@ -1,136 +1,104 @@
-/* Twitter UI 다이어트 버전 (HTML을 최소화함) */
+/* Twitter UI - blockquote 기반 안정화 버전 */
 
-.tw-ui {
-    max-width: 470px;
-    margin: 20px auto;
-    background: #15202b;
-    color: #e7edf3;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
-    border: 1px solid #38444d;
-    overflow: hidden;
-    line-height: 1.3;
+/* 메인 컨테이너: .tw-ui 클래스가 붙은 blockquote */
+blockquote.tw-ui {
+    display: block !important;
+    max-width: 470px !important;
+    margin: 20px auto !important;
+    background: #15202b !important;
+    color: #e7edf3 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif !important;
+    border: 1px solid #38444d !important;
+    border-radius: 0 !important; /* 기본 blockquote 둥근 모서리 해제 */
+    overflow: hidden !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+    padding: 0 !important;
+    font-style: normal !important;
 }
 
-/* 헤더: <header>태그 하나로 처리 */
-.tw-ui header {
-    height: 55px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-bottom: 1px solid #38444d;
-    font-size: 20px;
-    font-weight: 800;
+/* 헤더 */
+blockquote.tw-ui header {
+    height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 16px !important;
+    border-bottom: 1px solid #38444d !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
 }
 
-.tw-ui header::before {
-    content: "←";
-    margin-right: 20px;
-    font-size: 20px;
+/* 트윗 개별 박스 */
+blockquote.tw-ui article {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 12px 16px 12px 70px !important;
+    border-bottom: 1px solid #38444d !important;
+    position: relative !important;
+    min-height: 80px !important;
 }
 
-/* 트윗 박스: <article>태그 하나로 처리 */
-.tw-ui article {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 16px 12px 70px;
-    border-bottom: 1px solid #38444d;
-    position: relative;
-    min-height: 80px;
+blockquote.tw-ui article:last-child {
+    border-bottom: 0 !important;
 }
 
-.tw-ui article:last-child {
-    border-bottom: 0;
+/* 프로필 이미지 가상 요소 */
+blockquote.tw-ui article::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background-color: #22303c !important;
+    background-size: cover !important;
 }
 
-/* 프로필 이미지 (CSS에서 일괄 관리하거나 가상요소로 처리) */
-.tw-ui article::before {
-    content: "";
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #22303c;
-    background-size: cover;
+blockquote.tw-ui article.npc::before {
+    background-image: url('https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png') !important;
 }
 
-/* NPC와 트친 프로필 구분 */
-.tw-ui article.npc::before {
-    /* 여기에 NPC 프로필 기본 이미지를 박아둘 수 있습니다 */
-    background-image: url('https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png');
+blockquote.tw-ui article.friend::before {
+    content: "🌙" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
 }
 
-.tw-ui article.friend::before {
-    content: "🌙";
-    /* 트친은 이모지로 대체 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+/* 닉네임 영역 */
+blockquote.tw-ui article h3 {
+    margin: 0 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    color: #f5f8fa !important;
 }
 
-/* 닉네임: <h3>태그 */
-.tw-ui article h3 {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+blockquote.tw-ui article h3 span {
+    color: #8899a6 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    margin-left: 4px !important;
 }
 
-/* 아이디와 시간 자동 삽입 */
-.tw-ui article.npc h3::after {
-    content: "@locked · 1h";
-    color: #8899a6;
-    font-size: 14px;
-    font-weight: 400;
-    margin-left: 4px;
+/* 본문 */
+blockquote.tw-ui article p {
+    margin: 4px 0 0 0 !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    white-space: pre-wrap !important;
+    color: #e7edf3 !important;
 }
 
-.tw-ui article.friend h3::after {
-    content: "@friend · 58m";
-    color: #8899a6;
-    font-size: 14px;
-    font-weight: 400;
-    margin-left: 4px;
-}
-
-/* 본문: <p>태그 */
-.tw-ui article p {
-    margin: 4px 0 0 0;
-    font-size: 15px;
-    line-height: 1.4;
-    white-space: pre-wrap;
-}
-
-/* 하단 액션 아이콘 자동 생성: <article>의 가상요소로 처리 */
-.tw-ui article::after {
-    content: "💬 12    ↻ 4    ♡ 56    🔖";
-    display: block;
-    margin-top: 12px;
-    color: #8899a6;
-    font-size: 13px;
-    word-spacing: 15px;
-}
-
-.tw-ui article.friend::after {
-    content: "💬 1    ↻    ♡ 3    🔖";
-}
-
-/* 답글 표시 (@아이디) */
-.tw-ui article p::before {
-    display: block;
-    color: #1da1f2;
-    font-size: 14px;
-    margin-bottom: 2px;
-}
-
-.tw-ui article.friend p::before {
-    content: "Replying to @locked";
-}
-
-.tw-ui article.reply p::before {
-    content: "Replying to @friend";
+/* 하단 아이콘 가상 요소 */
+blockquote.tw-ui article::after {
+    content: "💬 12    ↻ 4    ♡ 56" !important;
+    display: block !important;
+    margin-top: 12px !important;
+    color: #8899a6 !important;
+    font-size: 13px !important;
+    word-spacing: 15px !important;
 }
