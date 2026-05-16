@@ -46,13 +46,14 @@ blockquote.tw-ui article {
     background-repeat: no-repeat !important;
 
     position: relative !important;
+    /* 프로필과 점 세 개의 공통 기준점 */
 }
 
 blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 가상 요소 */
+/* 프로필 이미지 가상 요소 (왼쪽 외곽에서 16px) */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -76,7 +77,7 @@ blockquote.tw-ui article.friend::before {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 닉네임 영역 (가로 폭 컴포넌트 전체 확장) */
+/* 닉네임 영역 */
 blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
@@ -85,26 +86,24 @@ blockquote.tw-ui article h3 {
     text-align: left !important;
     line-height: 1.2 !important;
 
-    /* 렌더러 절대좌표 버그 우회를 위해 블록 속성 부여 및 풀 와이드 처리 */
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding-right: 0 !important;
+    /* 점 세 개 정렬 버그를 잡기 위해 h3 자체의 relative 속성 제거 */
+    position: static !important;
+    padding-right: 32px !important;
+    /* 닉네임이 길어져도 오른쪽 점 세 개 영역을 침범하지 않도록 방어 */
 }
 
-/* 닉네임 우측 끝 점 세 개 메뉴 (Float 방식으로 전면 개편) */
+/* 닉네임 우측 상단 점 세 개 메뉴 (오른쪽 외곽에서 정확히 16px 대칭 고정) */
 blockquote.tw-ui article h3::before {
     content: "⋯" !important;
-    float: right !important;
-    /* absolute를 걷어내고 우측 플로팅으로 벼랑 끝 고정 */
+    position: absolute !important;
+    right: 16px !important;
+    /* 왼쪽 프로필 여백(16px)과 완전히 일치시켜 황금 밸런스 구현 */
+    top: 15px !important;
+    /* 상단 패딩(14px)을 고려해 닉네임 텍스트 중심선에 안착 */
     color: #8899a6 !important;
     font-size: 16px !important;
     font-weight: bold !important;
-    line-height: 1.2 !important;
-
-    /* 기존 버그 유발 속성 초기화 */
-    position: static !important;
-    transform: none !important;
+    line-height: 1 !important;
 }
 
 /* 비밀계정 자물쇠 */
@@ -124,6 +123,8 @@ blockquote.tw-ui article p {
     color: #e1e8ed !important;
     text-align: left !important;
     font-weight: 400 !important;
+    padding-right: 16px !important;
+    /* 본문 우측 여백도 오른쪽 외곽선 마진과 통일 */
 }
 
 /* 하단 인터랙션 메트릭 */
