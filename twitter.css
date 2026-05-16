@@ -22,7 +22,7 @@ blockquote.tw-ui {
     letter-spacing: -0.3px !important;
 }
 
-/* 헤더 (높이 압축 및 가로 한 줄 강제 정렬) */
+/* 헤더 */
 blockquote.tw-ui header {
     width: 94% !important;
     margin: 0 auto !important;
@@ -38,20 +38,20 @@ blockquote.tw-ui header {
     color: #ffffff !important;
 }
 
-/* 헤더 내 트위터 로고 강제 주입 (WebP 반영) */
+/* 헤더 내 트위터 로고 강제 주입 */
 blockquote.tw-ui header::before {
     content: "" !important;
     display: inline-block !important;
     width: 20px !important;
     height: 20px !important;
     margin-right: 8px !important;
-    background-image: url('https://raw.githack.com/Ej761/publish/main/blue_bird.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/blue_bird.webp') !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: contain !important;
 }
 
-/* 트윗 개별 박스 (94% 정렬) */
+/* 트윗 개별 박스 */
 blockquote.tw-ui article {
     display: flex !important;
     flex-direction: column !important;
@@ -70,7 +70,7 @@ blockquote.tw-ui article:last-child {
     background-image: none !important;
 }
 
-/* 프로필 이미지 기본 규격 (원형에서 둥근 사각형으로 변경) */
+/* 프로필 이미지 기본 규격 */
 blockquote.tw-ui article::before {
     content: "" !important;
     position: absolute !important;
@@ -84,30 +84,30 @@ blockquote.tw-ui article::before {
     background-position: center !important;
 }
 
-/* NPC 기본 프로필 */
+/* NPC 기본 프로필 (알계 이미지 경로에 /twitter/ 추가) */
 blockquote.tw-ui article.npc::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/F17pCrjaQAEP_7o.png') !important;
+    background-image: var(--avatar-url, url('https://raw.githack.com/Ej761/publish/main/twitter/F17pCrjaQAEP_7o.png')) !important;
 }
 
-/* 트친 프로필 이미지 풀 (WebP 경로 일괄 매핑) */
+/* 트친 프로필 이미지 풀 */
 blockquote.tw-ui article.friend.p1::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/friend_p1.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
 }
 
 blockquote.tw-ui article.friend.p2::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/friend_p2.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
 }
 
 blockquote.tw-ui article.friend.p3::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/friend_p3.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
 }
 
 blockquote.tw-ui article.friend.p4::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/friend_p4.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
 }
 
 blockquote.tw-ui article.friend.p5::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/friend_p5.webp') !important;
+    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
 /* 닉네임 영역 */
@@ -166,7 +166,7 @@ blockquote.tw-ui article::after {
     white-space: pre !important;
 }
 
-/* 최하단 영문 서명 크레딧 레이어 (94% 정렬선 일치) */
+/* 최하단 영문 서명 크레딧 레이어 */
 blockquote.tw-ui::after {
     content: "Simulated by @Ej761" !important;
     display: block !important;
