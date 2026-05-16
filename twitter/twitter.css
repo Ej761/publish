@@ -32,146 +32,86 @@ blockquote.tw-ui header {
     align-items: center !important;
     padding: 0 16px !important;
     border-bottom: 1px solid #38444d !important;
-    box-sizing: border-box !important;
+    color: #fff !important;
     font-size: 16px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-}
-
-/* 헤더 내 트위터 로고 */
-blockquote.tw-ui header::before {
-    content: "" !important;
-    display: inline-block !important;
-    width: 20px !important;
-    height: 20px !important;
-    margin-right: 8px !important;
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/blue_bird.webp') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
-}
-
-/* 트윗 개별 박스 */
-blockquote.tw-ui article {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 94% !important;
-    margin: 0 auto !important;
-    padding: 14px 16px 14px 68px !important;
+    font-weight: 800 !important;
     box-sizing: border-box !important;
-    background-image: linear-gradient(to right, #38444d 100%, transparent) !important;
-    background-size: calc(100% - 84px) 1px !important;
-    background-position: bottom right 16px !important;
-    background-repeat: no-repeat !important;
+}
+
+/* 개별 아티클 공통 */
+blockquote.tw-ui article {
     position: relative !important;
-}
-
-blockquote.tw-ui article:last-child {
-    background-image: none !important;
-}
-
-/* 프로필 이미지 기본 규격 (트친 전용 가상 요소) */
-blockquote.tw-ui article::before {
-    content: "" !important;
-    position: absolute !important;
-    left: 16px !important;
-    top: 14px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 8px !important;
-    background-color: #22303c !important;
-    background-size: cover !important;
-    background-position: center !important;
-}
-
-/* NPC 프로필 기본 가상 요소 제거 */
-blockquote.tw-ui article.npc::before {
-    display: none !important;
-}
-
-/* [파싱 보완] 플랫폼 이미지 첨부 위젯 부모 컨테이너 강제 제약 및 프로필화 */
-blockquote.tw-ui article.npc>img,
-blockquote.tw-ui article.npc>div:has(img),
-blockquote.tw-ui article.npc>span:has(img),
-blockquote.tw-ui article.npc>p:has(img),
-blockquote.tw-ui article.npc>a:has(img) {
-    position: absolute !important;
-    left: 16px !important;
-    top: 14px !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    z-index: 10 !important;
-    background-color: #22303c !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* 위젯 내부 이미지 무조건 풀 스크린화 */
-blockquote.tw-ui article.npc img {
+    display: block !important;
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    position: static !important;
+    padding: 12px 16px 12px 68px !important;
+    border-bottom: 1px solid #38444d !important;
+    box-sizing: border-box !important;
+    background: #15202b !important;
 }
 
-/* 이미지 우측에 강제 생성되는 플랫폼 공유 버튼 및 메타 요소 완전 박멸 */
-blockquote.tw-ui article.npc button,
-blockquote.tw-ui article.npc [class*="share"],
-blockquote.tw-ui article.npc [class*="button"],
-blockquote.tw-ui article.npc div:not(:has(img)) h3~div {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
+/* 마지막 아티클은 하단 선 제거 */
+blockquote.tw-ui article:last-of-type {
+    border-bottom: none !important;
 }
 
-/* 트친 프로필 이미지 풀 */
-blockquote.tw-ui article.friend.p1::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
+/* 트친 댓글 (기본 왼쪽 라인 스타일 유지) */
+blockquote.tw-ui article.friend {
+    border-left: 4px solid #1da1f2 !important;
 }
 
-blockquote.tw-ui article.friend.p2::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p2.webp') !important;
+/* 트친 닉네임 컬러 랜덤 (p1 ~ p5) */
+blockquote.tw-ui article.friend.p1 h3 {
+    color: #ff7b92 !important;
 }
 
-blockquote.tw-ui article.friend.p3::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p3.webp') !important;
+blockquote.tw-ui article.friend.p2 h3 {
+    color: #ffae42 !important;
 }
 
-blockquote.tw-ui article.friend.p4::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p4.webp') !important;
+blockquote.tw-ui article.friend.p3 h3 {
+    color: #a3e15c !important;
 }
 
-blockquote.tw-ui article.friend.p5::before {
-    background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
+blockquote.tw-ui article.friend.p4 h3 {
+    color: #64ccff !important;
 }
 
-/* 닉네임 영역 */
+blockquote.tw-ui article.friend.p5 h3 {
+    color: #bca6ff !important;
+}
+
+/* NPC 답글 (왼쪽 스레드 연결선 타겟팅 복원용 여백) */
+blockquote.tw-ui article.npc.reply {
+    padding-top: 16px !important;
+}
+
+/* 닉네임 */
 blockquote.tw-ui article h3 {
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
-    font-weight: 600 !important;
-    color: #ffffff !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    line-height: 1.3 !important;
     text-align: left !important;
-    line-height: 1.2 !important;
-    position: static !important;
-    padding-right: 20px !important;
 }
 
-/* 닉네임 우측 상단 점 세 개 메뉴 */
+/* 트친 닉네임 기본 스타일 */
+blockquote.tw-ui article.friend h3 {
+    font-size: 14px !important;
+}
+
+/* 아이디/시간 (가상 요소 부착) */
 blockquote.tw-ui article h3::before {
-    content: "⋯" !important;
-    position: absolute !important;
-    right: 16px !important;
-    top: 15px !important;
+    content: " @secret_account · 1분" !important;
+    font-weight: 400 !important;
     color: #8899a6 !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    line-height: 1 !important;
+    font-size: 13px !important;
+    margin-left: 4px !important;
+}
+
+/* 트친 아이디 변경 */
+blockquote.tw-ui article.friend h3::before {
+    content: " @friend_user · 1분" !important;
 }
 
 /* 비밀계정 자물쇠 */
@@ -196,28 +136,77 @@ blockquote.tw-ui article p {
 
 /* 하단 인터랙션 메트릭 */
 blockquote.tw-ui article::after {
-    content: "💬" attr(data-reply) "          ↻" attr(data-rt) "          ♡" attr(data-like) "          𝄘" !important;
+    content: "💬 " attr(data-reply) "          ↻ " attr(data-rt) "          ♡ " attr(data-like) "          𝄘" !important;
     display: block !important;
     color: #8899a6 !important;
     font-size: 12px !important;
     font-weight: 400 !important;
     letter-spacing: 0.5px !important;
     margin-top: 4px !important;
-    white-space: pre !important;
+    text-align: left !important;
 }
 
-/* 카피라이트 고정 */
-blockquote.tw-ui::after {
-    content: "© 2026 Shybee (EJ) on Plaitoon" !important;
+
+/* ==========================================================
+   [엔진 대응 업데이트] 이미지 깨짐 및 프롬프트 노출 방지 처리
+   ========================================================== */
+
+/* 1. 플레이툰 OOC 본문이 채팅창 하단에 생으로 출력되는 현상 방지 */
+blockquote.tw-ui+p,
+blockquote.tw-ui+span,
+blockquote.tw-ui+br,
+.ooc-container,
+font[color*="gray"] {
+    display: none !important;
+}
+
+/* 2. NPC 프로필 이미지 영역 강제 제어 (순수 마크다운 파싱 에러 우회) */
+blockquote.tw-ui article.npc {
+    position: relative !important;
+}
+
+/* 백그라운드 더미 박스를 배치해 이미지 로드 전 레이아웃 붕괴 방지 */
+blockquote.tw-ui article.npc::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 16px !important;
+    top: 12px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #22303c !important;
     display: block !important;
-    width: 94% !important;
-    margin: 0 auto !important;
-    padding: 10px 16px !important;
-    text-align: right !important;
-    font-size: 11px !important;
-    color: #8899a6 !important;
-    border-top: 1px solid #38444d !important;
-    box-sizing: border-box !important;
-    opacity: 1 !important;
-    font-style: normal !important;
+    z-index: 1 !important;
+}
+
+/* 엔진이 뱉어낸 마크다운 이미지 껍데기를 프로필 위치로 강제 배치 및 덮어쓰기 */
+blockquote.tw-ui article.npc img,
+blockquote.tw-ui article.npc p+img,
+blockquote.tw-ui article.npc a img {
+    position: absolute !important;
+    left: 16px !important;
+    top: 12px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    z-index: 2 !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* 트친(friend)용 기본 더미 프로필 이미지 자동 생성 (마크다운 누락 보완) */
+blockquote.tw-ui article.friend::before {
+    content: "👤" !important;
+    position: absolute !important;
+    left: 16px !important;
+    top: 12px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: #253341 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    z-index: 1 !important;
 }
