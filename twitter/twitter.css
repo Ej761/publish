@@ -219,8 +219,8 @@ blockquote.tw-ui span.article strong.nick::after {
     height: 16px !important;
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/3dot.webp') !important;
     background-repeat: no-repeat !important;
-    background-size: contain !important;
     background-position: center !important;
+    background-size: contain !important;
 }
 
 /* 본문 */
