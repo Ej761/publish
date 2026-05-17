@@ -199,21 +199,28 @@ blockquote.tw-ui span.article.friend.p5::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p5.webp') !important;
 }
 
-/* 닉네임 영역 + 점세개 */
+/* 닉네임 영역 */
 blockquote.tw-ui span.article strong.nick {
-    display: block !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     margin: 0 0 4px 0 !important;
     font-size: 15px !important;
     font-weight: 600 !important;
     color: #ffffff !important;
     line-height: 1.2 !important;
-    text-align: left !important;
-    padding-right: 20px !important;
-    /* 점세개 */
+}
+
+/* 점세개 */
+blockquote.tw-ui span.article strong.nick::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/3dot.webp') !important;
     background-repeat: no-repeat !important;
-    background-position: right center !important;
-    background-size: 16px !important;
+    background-size: contain !important;
+    background-position: center !important;
 }
 
 /* 본문 */
