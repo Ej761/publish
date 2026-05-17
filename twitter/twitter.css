@@ -156,7 +156,7 @@ blockquote.tw-ui span.article.npc img[src] {
     visibility: visible !important;
 }
 
-/* 프로필 이미지 박스 내부의 이미지 외 모든 요소 제거 */
+/* 프로필 이미지 박스 내부의 이미지 외 요소 제거 */
 blockquote.tw-ui span.article.npc>div:has(img) *:not(img),
 blockquote.tw-ui span.article.npc>span:has(img) *:not(img),
 blockquote.tw-ui span.article.npc>p:has(img) *:not(img),
@@ -166,7 +166,7 @@ blockquote.tw-ui span.article.npc>a:has(img) *:not(img) {
     visibility: hidden !important;
 }
 
-/* 트윗 박스 내에 강제로 삽입되는 플랫폼 공유용 요소 숨김 */
+/* 플랫폼 공유 버튼 숨김 */
 blockquote.tw-ui span.article.npc button,
 blockquote.tw-ui span.article.npc svg,
 blockquote.tw-ui span.article.npc [class*="share"],
@@ -211,20 +211,17 @@ blockquote.tw-ui span.article strong.nick {
     line-height: 1.2 !important;
 }
 
-/* 우측 점세개 가상 요소 (크기 고정 및 이미지) */
+/* 점세개 */
 blockquote.tw-ui span.article strong.nick::after {
     content: "" !important;
     display: block !important;
-    /* 가상 요소를 면적으로 인식시킴 */
     flex-shrink: 0 !important;
-    /* Flex 안에서 16px 크기가 쪼그라드는 버그 방지 */
     width: 16px !important;
     height: 16px !important;
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/3dot.webp?v=2') !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     background-position: center !important;
-    /* 수직 가운데 정렬 고정 */
 }
 
 /* 본문 */
