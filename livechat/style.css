@@ -1,8 +1,6 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM
-   약어형 class 기준 / 내부 90% 박스 구조
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.4
    ========================================================================== */
-
 
 /* 전체 UI 박스 */
 blockquote.box {
@@ -35,7 +33,6 @@ blockquote.box {
     align-items: center;
 }
 
-
 /* 방송 제목 영역 */
 .hdr {
     width: 94%;
@@ -51,7 +48,6 @@ blockquote.box {
     padding: 0;
 }
 
-
 /* LIVE 뱃지 깜빡임 애니메이션 */
 @keyframes livePulse {
     0% {
@@ -66,7 +62,6 @@ blockquote.box {
         opacity: 1;
     }
 }
-
 
 /* 방송 제목 앞 LIVE 뱃지 */
 .hdr::before {
@@ -86,41 +81,26 @@ blockquote.box {
     animation: livePulse 2s ease-in-out infinite;
 }
 
-
-/* 방송 제목 아래 짧은 구분선 */
-.inf::after {
-    content: "";
-    width: 94%;
-    height: 1px;
-    background: linear-gradient(to right, #2a2a30 0, #2a2a30 86px, transparent 86px, transparent 100%);
-    margin-top: 26px;
-}
-
-
-/* 선수명 / 시청자수 상태바 */
+/* 1. 상태바 다이어트 (배경 삭제, 폰트 축소, 컬러 다운) */
 .MB {
     width: 94%;
-    min-height: 46px;
-    margin-top: 24px;
-    padding: 0 18px;
+    margin-top: 16px;
+    padding: 0 4px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1a1a1d;
-    border-radius: 10px;
-    color: #d8d8d8;
-    font-size: 15px;
-    font-weight: 600;
 }
-
 
 /* 선수명 영역 + 시청자수 영역 공통 */
 .MA,
 .MV {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
+    gap: 6px;
+    color: #8f8f96;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 
@@ -160,69 +140,56 @@ blockquote.box {
 }
 
 
-/* 일반 채팅 한 줄 */
+/* 1. 일반 채팅 단위 (여백 미세조정) */
 .CR {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 12px;
-    align-items: baseline;
-    font-size: 13px;
-    line-height: 1.45;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
     box-sizing: border-box;
 }
 
 
-/* 일반 채팅 닉네임 */
+/* 2. 닉네임 (마이크로 타이포그래피) */
 .CN {
-    color: #8f8f96;
-    font-weight: 700;
-    flex: 0 0 auto;
-    max-width: 25%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    color: #66666e;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 
-/* 일반 채팅 본문 */
+/* 3. 본문 텍스트 (세련된 가독성) */
 .CT {
-    color: #d4d4d6;
+    color: #eeeeee;
+    font-size: 14px;
     font-weight: 400;
-    flex: 1 1 0%;
-    min-width: 0;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-    white-space: normal;
+    line-height: 1.5;
+    word-break: break-all;
 }
 
 
-/* 후원 채팅 한 줄 */
+/* 4. 후원 채팅 (배경 날리고 선으로만 표현) */
 .DR {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 12px;
-    row-gap: 6px;
-    align-items: baseline;
-    padding: 14px 14px 14px 16px;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
+    padding-left: 10px;
     box-sizing: border-box;
-    background: rgba(255, 0, 0, .10);
-    border-left: 4px solid #ff2b24;
-    border-radius: 0 8px 8px 0;
-    font-size: 13px;
-    line-height: 1.45;
+    background: transparent;
+    border-left: 2px solid #ff3b30;
 }
 
 
-/* 후원 채팅 닉네임 */
+/* 5. 후원 닉네임 */
 .DN {
-    color: #ffffff;
-    font-weight: 700;
-    flex: 0 0 auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    color: #ff8a84;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 
@@ -232,15 +199,13 @@ blockquote.box {
 }
 
 
-/* 후원 채팅 본문 */
+/* 6. 후원 본문 */
 .DT {
     color: #ff3b30;
-    font-weight: 700;
-    flex: 1 1 0%;
-    min-width: 0;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-    white-space: normal;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: break-all;
 }
 
 
