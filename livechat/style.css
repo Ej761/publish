@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.5
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.6
    ========================================================================== */
 
 /* 1. 최상단 웹 폰트(Pretendard) 로드 */
@@ -24,13 +24,15 @@ blockquote.box {
     flex-direction: column;
 }
 
-/* 방송 정보 카드 영역 */
+/* 1. 방송 정보 카드 영역 여백 밸런스 조정 */
 .inf {
     width: 100%;
     background: #0b0b0d;
-    padding: 26px 0 22px;
+    padding: 24px 0 20px;
+    /* 상하 패딩 미세 조정 (시각적 무게중심 안정화) */
     box-sizing: border-box;
-    border-bottom: 1px solid #222228;
+    border-bottom: 1px solid #1a1a20;
+    /* 선 대비를 낮춰서 눈에 덜 띄게 변경 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,11 +89,13 @@ blockquote.box {
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* 1. 상태바 다이어트 (배경 삭제, 폰트 축소, 컬러 다운) */
+/* 2. 상태바 좌측 정렬 강제 일치 */
 .MB {
     width: 94%;
-    margin-top: 16px;
-    padding: 0 4px;
+    margin-top: 14px;
+    /* 제목과의 간격을 16px -> 14px로 압축 */
+    padding: 0;
+    /* 기존 padding: 0 4px; 삭제 (정렬 어긋남의 핵심 원인) */
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -110,9 +114,16 @@ blockquote.box {
 }
 
 
-/* 선수명 앞 불 아이콘 */
+/* 4. 참가자명 앞 ACE 타이틀 삽입 (HTML 수정 불필요) */
 .MA::before {
-    content: "🔥";
+    content: "🔥 ACE :";
+    font-size: 11px;
+    font-weight: 700;
+    color: #ff3b30;
+    /* 데스 프레임 톤앤매너에 맞춘 레드 포인트 */
+    margin-right: 6px;
+    letter-spacing: 0.02em;
+    vertical-align: baseline;
 }
 
 
@@ -121,12 +132,10 @@ blockquote.box {
     content: "👁";
 }
 
-/* 4. 이모지 가상 요소 사이즈 및 수직 정렬 교정 */
-.MA::before,
+/* 3. 공통 이모지 속성에서 MA(선수명) 분리 */
 .MV::before,
 .DN::before {
     font-size: 1.15em;
-    /* 텍스트 크기 대비 115%로 유동적 조정 */
     line-height: 1;
     margin-right: 2px;
     vertical-align: text-top;
