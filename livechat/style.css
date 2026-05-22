@@ -24,7 +24,7 @@ blockquote.box {
     flex-direction: column;
 }
 
-/* 1. 컨테이너 상하 데드 스페이스 축소 */
+/* 1. 컨테이너 상하 데드 스페이스 축소 및 소프트 섀도우 적용 */
 .inf {
     padding: 18px 0 16px;
     /* 기존 24px 0 20px -> 위아래 다이어트 */
@@ -32,10 +32,16 @@ blockquote.box {
     width: 100%;
     background: #0b0b0d;
     box-sizing: border-box;
-    border-bottom: 1px solid #1a1a20;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    /* 그림자가 아래 요소를 덮기 위한 포지셔닝 */
+    z-index: 10;
+
+    /* 실선 삭제 및 그림자 추가 */
+    border-bottom: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* 3. 방송 제목 (가로 고정 여백 확보) */
@@ -200,7 +206,7 @@ blockquote.box {
 }
 
 
-/* 4. 후원 채팅 (배경 날리고 선으로만 표현) */
+/* 4. 후원 채팅 (페이드 아웃 그라데이션) */
 .DR {
     width: 100%;
     display: flex;
@@ -209,8 +215,12 @@ blockquote.box {
     margin-bottom: 14px;
     padding-left: 10px;
     box-sizing: border-box;
-    background: transparent;
     border-left: 2px solid #ff3b30;
+
+    /* 신규 속성: 8% 투명도의 빨간색에서 완전 투명으로 빠지는 그라데이션 */
+    background: linear-gradient(90deg, rgba(255, 59, 48, 0.08) 0%, transparent 100%);
+    border-radius: 0 4px 4px 0;
+    /* 우측 끝부분만 아주 살짝 둥글림 */
 }
 
 
@@ -259,8 +269,21 @@ blockquote.box {
     border-radius: 999px;
 }
 
+/* 채팅 등장 애니메이션 키프레임 */
+@keyframes chatFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(4px);
+    }
 
-/* 채팅창 스크롤바에 마우스를 올렸을 때 */
-.CW::-webkit-scrollbar-thumb:hover {
-    background: #ff3b30;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 일반 채팅, 후원 채팅에 애니메이션 바인딩 */
+.CR,
+.DR {
+    animation: chatFadeUp 0.3s ease-out forwards;
 }
