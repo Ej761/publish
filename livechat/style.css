@@ -1,0 +1,164 @@
+/* ==========================================================================
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM
+   ========================================================================== */
+
+/* 1. 글로벌 컨테이너 (실시간 중계 UI 전체 레이아웃) */
+.live-ui-container {
+    width: 100%;
+    max-width: 100%;
+    background-color: #000000; /* 완전한 블랙 배경 */
+    border: 1px solid #222222; /* 어두운 회색 테두리로 경계 구분 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 2. 방송 정보 카드 (미니멀 플랫 레이아웃) */
+.live-info-card {
+    width: 100%;
+    background-color: #0f0f0f; /* 채팅창보다 미세하게 밝은 최상단 배경 */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a1a1a; /* 챗창과의 얇은 경계선 */
+}
+
+/* 상단: 방송명 (레드 닷 + 텍스트) */
+.live-header {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 15px 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* 텍스트 앞 빨간색 라이브 점(Dot) 자동 생성 */
+.live-header::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #ff0000;
+    border-radius: 50%;
+}
+
+/* 하단: 에이스 & 뷰어 바 (다크 그레이 박스) */
+.live-meta-bar {
+    background-color: #1a1a1a;
+    margin: 0 15px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between; /* 에이스 좌, 뷰어 우 양끝 정렬 */
+    align-items: center;
+    font-size: 11px;
+}
+
+/* 에이스 (좌측) */
+.meta-ace {
+    color: #dddddd;
+}
+.meta-ace::before {
+    content: "🔥 ";
+}
+
+/* 뷰어 (우측) */
+.meta-viewer {
+    color: #dddddd;
+}
+.meta-viewer::before {
+    content: "👁 ";
+}
+
+
+/* 3. 실시간 채팅창 (하단 영역) */
+.live-chat-window {
+    width: 100%;
+    height: 320px; /* 박스 사이즈 고정 */
+    background-color: #000000;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* 본문 스크롤 강제 */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 일반 채팅 메시지 요소 */
+.chat-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* 텍스트 컨테이너 (레이아웃 붕괴 및 잘림 방지 룰) */
+.chat-text-container {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* 유저 닉네임 */
+.chat-user-name {
+    color: #888888; /* 톤다운된 회색 */
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* 일반 채팅 본문 */
+.chat-body-text {
+    color: #cccccc; /* 연한 회색 */
+}
+
+/* 4. 후원(도네이션) 메시지 스타일 (강조 규칙) */
+.chat-row-donation {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 0, 0, 0.08); /* 극도로 절제된 레드 시스루 배경 */
+    border-left: 3px solid #ff0000; /* 왼쪽 라인 강한 레드 포인트 */
+    padding: 8px 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 1.4;
+    gap: 4px;
+}
+
+/* 후원 타이틀 (💰닉네임님이 후원! - 줄바꿈 전 상단 영역) */
+.donation-header {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* 후원 타이틀 앞에 이모지 자동 삽입 */
+.donation-header::before {
+    content: "💰 ";
+}
+
+/* 후원 본문 내용 (줄바꿈 후 하단 영역 강조) */
+.donation-body {
+    color: #ff0000; /* 포인트 색상: 레드 */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* 스크롤바 커스텀 (UI 무드를 깨지 않는 다크 스타일) */
+.live-chat-window::-webkit-scrollbar {
+    width: 4px;
+}
+.live-chat-window::-webkit-scrollbar-track {
+    background: #000000;
+}
+.live-chat-window::-webkit-scrollbar-thumb {
+    background: #222222;
+}
+.live-chat-window::-webkit-scrollbar-thumb:hover {
+    background: #ff0000;
+}
