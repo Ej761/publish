@@ -1,8 +1,11 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.4
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.5
    ========================================================================== */
 
-/* 전체 UI 박스 */
+/* 1. 최상단 웹 폰트(Pretendard) 로드 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+/* 2. 전체 UI 박스 폰트 스택 적용 */
 blockquote.box {
     width: 100%;
     max-width: 100%;
@@ -14,7 +17,7 @@ blockquote.box {
     box-sizing: border-box;
     overflow: hidden;
     color: #e8e8e8;
-    font-family: inherit;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     font-style: normal;
     box-shadow: none;
     display: flex;
@@ -33,7 +36,7 @@ blockquote.box {
     align-items: center;
 }
 
-/* 방송 제목 영역 */
+/* 3. 방송 제목 (반응형 사이즈 및 한줄 고정) */
 .hdr {
     width: 94%;
     box-sizing: border-box;
@@ -41,11 +44,14 @@ blockquote.box {
     align-items: center;
     gap: 12px;
     color: #f5f5f5;
-    font-size: 18px;
+    font-size: clamp(15px, 4vw, 18px);
+    /* 모바일 15px, 데스크톱 18px */
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
     padding: 0;
+    white-space: nowrap;
+    /* 강제 줄바꿈 방지 */
 }
 
 /* LIVE 뱃지 깜빡임 애니메이션 */
@@ -107,14 +113,23 @@ blockquote.box {
 /* 선수명 앞 불 아이콘 */
 .MA::before {
     content: "🔥";
-    font-size: 17px;
 }
 
 
 /* 시청자수 앞 눈 아이콘 */
 .MV::before {
     content: "👁";
-    font-size: 17px;
+}
+
+/* 4. 이모지 가상 요소 사이즈 및 수직 정렬 교정 */
+.MA::before,
+.MV::before,
+.DN::before {
+    font-size: 1.15em;
+    /* 텍스트 크기 대비 115%로 유동적 조정 */
+    line-height: 1;
+    margin-right: 2px;
+    vertical-align: text-top;
 }
 
 
