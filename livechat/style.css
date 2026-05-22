@@ -1,54 +1,63 @@
 /* ==========================================================================
    DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM
+   약어형 class 기준 / 내부 90% 박스 구조
    ========================================================================== */
 
-/* 1. 글로벌 컨테이너 (실시간 중계 UI 전체 레이아웃) */
+
+/* 전체 UI 박스 */
 .box {
     width: 100%;
     max-width: 100%;
-    background-color: #0b0b0d;
-    /* 완전한 블랙에서 아주 다크한 톤으로 변경 */
-    border: 1px solid #1f1f23;
-    /* 얇은 다크 그레이 테두리 */
-    border-radius: 8px;
-    /* 모서리 둥글게 처리 */
+    margin: 0 auto;
+    background: #0b0b0d;
+    border: 1px solid #34343a;
+    border-radius: 14px;
     box-sizing: border-box;
+    overflow: hidden;
+    color: #e8e8e8;
+    font-family: inherit;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
-/* 2. 방송 정보 카드 (상단 영역) */
+
+/* 방송 정보 카드 영역 */
 .inf {
     width: 100%;
-    background-color: #0b0b0d;
+    background: #0b0b0d;
+    padding: 26px 0 22px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #222228;
     display: flex;
     flex-direction: column;
-    padding-bottom: 15px;
-    position: relative;
+    align-items: center;
 }
 
-/* 상단: 방송명 (LIVE 뱃지 + 텍스트) */
+
+/* 방송 제목 영역 */
 .hdr {
-    color: #ffffff;
-    font-size: 15px;
-    /* 타이틀 텍스트 크기 확대 */
-    font-weight: bold;
-    padding: 16px 15px 12px 15px;
+    width: 94%;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    gap: 8px;
-    /* 뱃지와 텍스트 사이 간격 */
+    gap: 12px;
+    color: #f5f5f5;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    padding: 0;
 }
 
-/* 텍스트 앞 라이브(LIVE) 뱃지 자동 생성 및 펄스(숨쉬기) 애니메이션 */
+
+/* LIVE 뱃지 깜빡임 애니메이션 */
 @keyframes livePulse {
     0% {
         opacity: 1;
     }
 
     50% {
-        opacity: 0.5;
+        opacity: .55;
     }
 
     100% {
@@ -56,166 +65,197 @@
     }
 }
 
+
+/* 방송 제목 앞 LIVE 뱃지 */
 .hdr::before {
     content: "LIVE";
-    display: inline-block;
-    background-color: #ff3b30;
-    /* 화사한 레드 */
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    padding: 0 8px;
+    background: #ff3b30;
     color: #ffffff;
-    font-size: 10px;
+    border-radius: 5px;
+    font-size: 12px;
     font-weight: 900;
-    padding: 2px 5px;
-    border-radius: 3px;
-    letter-spacing: 0.5px;
+    letter-spacing: .03em;
     animation: livePulse 2s ease-in-out infinite;
-    transform: translateY(-1px);
-    /* 수직 정렬 미세 조정 */
 }
 
-/* 타이틀 아래 짧은 구분선 (가상 요소 활용) */
+
+/* 방송 제목 아래 짧은 구분선 */
 .inf::after {
     content: "";
-    position: absolute;
-    left: 15px;
-    top: 50px;
-    /* 헤더 아래쪽 위치 */
-    width: 60px;
-    /* 이미지처럼 부분적으로만 그어지는 선 */
+    width: 94%;
     height: 1px;
-    background-color: #222222;
+    background: linear-gradient(to right, #2a2a30 0, #2a2a30 86px, transparent 86px, transparent 100%);
+    margin-top: 26px;
 }
 
-/* 하단: 에이스 & 뷰어 바 (다크 그레이 박스) */
+
+/* 선수명 / 시청자수 상태바 */
 .MB {
-    background-color: #1a1a1a;
-    margin: 12px 15px 0 15px;
-    padding: 10px 12px;
-    border-radius: 6px;
+    width: 94%;
+    min-height: 54px;
+    margin-top: 24px;
+    padding: 0 18px;
+    box-sizing: border-box;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    /* 양끝 정렬 */
-    align-items: center;
-    font-size: 12px;
+    background: #1a1a1d;
+    border-radius: 10px;
+    color: #d8d8d8;
+    font-size: 16px;
+    font-weight: 800;
 }
 
-/* 에이스 (좌측) */
-.MA {
-    color: #dddddd;
-    display: flex;
+
+/* 선수명 영역 + 시청자수 영역 공통 */
+.MA,
+.MV {
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 9px;
 }
 
+
+/* 선수명 앞 불 아이콘 */
 .MA::before {
     content: "🔥";
-    font-size: 13px;
+    font-size: 17px;
 }
 
-/* 뷰어 (우측) */
-.MV {
-    color: #dddddd;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
 
+/* 시청자수 앞 눈 아이콘 */
 .MV::before {
     content: "👁";
-    font-size: 13px;
+    font-size: 17px;
 }
 
 
-/* 3. 실시간 채팅창 (하단 영역) */
+/* 실시간 채팅창 영역 */
 .CW {
-    width: 100%;
+    width: 94%;
     height: 320px;
-    /* 박스 사이즈 고정 */
-    background-color: #000000;
-    padding: 10px;
-    box-sizing: border-box;
+    max-height: 320px;
+    min-height: 320px;
+    margin: 0 auto;
     overflow-y: auto;
-    /* 본문 스크롤 강제 */
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 18px 0 20px;
+    box-sizing: border-box;
+    background: #050506;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    scrollbar-gutter: stable;
 }
 
-/* 일반 채팅 메시지 요소 */
+
+/* 일반 채팅 한 줄 */
 .CR {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 12px;
-    line-height: 1.4;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(72px, 18%) minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+    font-size: 15px;
+    line-height: 1.55;
+    box-sizing: border-box;
 }
 
-/* 유저 닉네임 */
+
+/* 일반 채팅 닉네임 */
 .CN {
-    color: #888888;
-    /* 톤다운된 회색 */
-    font-weight: bold;
-    margin-right: 4px;
+    color: #8f8f96;
+    font-weight: 900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 
 /* 일반 채팅 본문 */
 .CT {
-    color: #cccccc;
-    flex: 1;
+    color: #d4d4d6;
+    font-weight: 600;
     min-width: 0;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
     white-space: normal;
 }
 
-/* 4. 후원(도네이션) 메시지 스타일 (강조 규칙) */
+
+/* 후원 채팅 한 줄 */
 .DR {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 0, 0, 0.08);
-    /* 극도로 절제된 레드 시스루 배경 */
-    border-left: 3px solid #ff0000;
-    /* 왼쪽 라인 강한 레드 포인트 */
-    padding: 8px 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(72px, 18%) minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: start;
+    padding: 14px 14px 14px 16px;
     box-sizing: border-box;
-    font-size: 12px;
-    line-height: 1.4;
-    gap: 4px;
+    background: rgba(255, 0, 0, .10);
+    border-left: 4px solid #ff2b24;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.55;
 }
 
-/* 후원 타이틀 (닉네임님이 후원! - 줄바꿈 전 상단 영역) */
+
+/* 후원 채팅 닉네임 */
 .DN {
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-/* 후원 타이틀 앞에 이모지 자동 삽입 */
+
+/* 후원 닉네임 앞 돈 아이콘 */
 .DN::before {
     content: "💰 ";
 }
 
-/* 후원 본문 내용 (줄바꿈 후 하단 영역 강조) */
+
+/* 후원 채팅 본문 */
 .DT {
-    color: #ff0000;
-    /* 포인트 색상: 레드 */
-    font-weight: bold;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    color: #ff3b30;
+    font-weight: 900;
+    min-width: 0;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
     white-space: normal;
 }
 
-/* 스크롤바 커스텀 (UI 무드를 깨지 않는 다크 스타일) */
+
+/* 채팅창 스크롤바 전체 폭 */
 .CW::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
 }
 
+
+/* 채팅창 스크롤바 배경 */
 .CW::-webkit-scrollbar-track {
-    background: #000000;
+    background: #050506;
 }
 
+
+/* 채팅창 스크롤바 막대 */
 .CW::-webkit-scrollbar-thumb {
-    background: #444444;
+    background: #34343a;
+    border-radius: 999px;
 }
 
+
+/* 채팅창 스크롤바에 마우스를 올렸을 때 */
 .CW::-webkit-scrollbar-thumb:hover {
-    background: #ff0000;
+    background: #ff3b30;
 }
