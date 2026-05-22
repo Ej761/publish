@@ -45,7 +45,7 @@ blockquote.box {
     gap: 12px;
     color: #f5f5f5;
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
     padding: 0;
@@ -111,7 +111,7 @@ blockquote.box {
     border-radius: 10px;
     color: #d8d8d8;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 
@@ -163,10 +163,10 @@ blockquote.box {
 /* 일반 채팅 한 줄 */
 .CR {
     width: 100%;
-    display: grid;
-    grid-template-columns: minmax(72px, 18%) minmax(0, 1fr);
-    column-gap: 16px;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    align-items: baseline;
     font-size: 13px;
     line-height: 1.45;
     box-sizing: border-box;
@@ -176,7 +176,9 @@ blockquote.box {
 /* 일반 채팅 닉네임 */
 .CN {
     color: #8f8f96;
-    font-weight: 900;
+    font-weight: 700;
+    flex: 0 0 auto;
+    max-width: 25%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -186,7 +188,8 @@ blockquote.box {
 /* 일반 채팅 본문 */
 .CT {
     color: #d4d4d6;
-    font-weight: 600;
+    font-weight: 400;
+    flex: 1 1 0%;
     min-width: 0;
     word-break: keep-all;
     overflow-wrap: anywhere;
@@ -197,11 +200,11 @@ blockquote.box {
 /* 후원 채팅 한 줄 */
 .DR {
     width: 100%;
-    display: grid;
-    grid-template-columns: minmax(72px, 18%) minmax(0, 1fr);
-    column-gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
     row-gap: 6px;
-    align-items: start;
+    align-items: baseline;
     padding: 14px 14px 14px 16px;
     box-sizing: border-box;
     background: rgba(255, 0, 0, .10);
@@ -215,7 +218,8 @@ blockquote.box {
 /* 후원 채팅 닉네임 */
 .DN {
     color: #ffffff;
-    font-weight: 900;
+    font-weight: 700;
+    flex: 0 0 auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -231,7 +235,8 @@ blockquote.box {
 /* 후원 채팅 본문 */
 .DT {
     color: #ff3b30;
-    font-weight: 900;
+    font-weight: 700;
+    flex: 1 1 0%;
     min-width: 0;
     word-break: keep-all;
     overflow-wrap: anywhere;
