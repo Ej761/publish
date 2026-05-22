@@ -139,17 +139,18 @@
 /* 실시간 채팅창 영역 */
 .CW {
     width: 94%;
-    height: 320px;
-    max-height: 320px;
-    min-height: 320px;
-    margin: 0 auto;
+    height: 232px;
+    max-height: 232px;
+    min-height: 232px;
+    margin: 0 auto 20px;
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    padding: 18px 0 20px;
+    padding: 18px 16px 20px;
     box-sizing: border-box;
     background: #050506;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
