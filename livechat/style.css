@@ -14,72 +14,46 @@
     overflow: hidden;
 }
 
-/* 2. 방송 정보 카드 (미니멀 플랫 레이아웃) */
+/* 2. 방송 정보 카드 (상단 영역) */
 .live-info-card {
     width: 100%;
-    background-color: #0f0f0f; /* 채팅창보다 미세하게 밝은 최상단 배경 */
+    background-color: #0a0a0a;
+    border-bottom: 2px solid #ff0000; /* 포인트 색상: 레드 언더라인 */
+    padding: 12px 15px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #1a1a1a; /* 챗창과의 얇은 경계선 */
-}
-
-/* 상단: 방송명 (레드 닷 + 텍스트) */
-.live-header {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 15px 8px 15px;
-    display: flex;
-    align-items: center;
     gap: 6px;
 }
-/* 텍스트 앞 라이브(LIVE) 뱃지 자동 생성 및 펄스(숨쉬기) 애니메이션 */
-@keyframes livePulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
+
+/* 방송명 (강제 줄바꿈 처리를 위해 블록 레이아웃 유지) */
+.live-info-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff; /* 흰색 메인 텍스트 */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
 }
 
-.live-header::before {
-    content: "LIVE";
-    display: inline-block;
-    background-color: #ff0000;
-    color: #ffffff;
-    font-size: 9px;
-    font-weight: 900;
-    padding: 2px 4px;
-    border-radius: 3px;
-    letter-spacing: 0.5px;
-    animation: livePulse 2s ease-in-out infinite;
-}
-
-/* 하단: 에이스 & 뷰어 바 (다크 그레이 박스) */
-.live-meta-bar {
-    background-color: #1a1a1a;
-    margin: 0 15px;
-    padding: 6px 12px;
-    border-radius: 4px;
+/* 뷰어 & 에이스 정보 영역 (하단 배치) */
+.live-info-meta {
     display: flex;
-    justify-content: space-between; /* 에이스 좌, 뷰어 우 양끝 정렬 */
-    align-items: center;
+    flex-direction: column; /* 줄바꿈 규칙 적용 */
+    gap: 3px;
     font-size: 11px;
 }
 
-/* 에이스 (좌측) */
-.meta-ace {
-    color: #dddddd;
-}
-.meta-ace::before {
-    content: "🔥 ";
+/* 메타 데이터 텍스트 스타일 */
+.meta-item {
+    color: #aaaaaa; /* 회색 서브 텍스트 */
+    font-weight: normal;
 }
 
-/* 뷰어 (우측) */
-.meta-viewer {
-    color: #dddddd;
-}
-.meta-viewer::before {
-    content: "👁 ";
+/* 핵심 데이터 강조 (뷰어 수, 에이스 이름 등 포인트 컬러) */
+.meta-accent {
+    color: #ff0000; /* 포인트 색상: 레드 */
+    font-weight: bold;
 }
 
 
@@ -105,15 +79,6 @@
     line-height: 1.4;
 }
 
-/* 텍스트 컨테이너 (레이아웃 붕괴 및 잘림 방지 룰) */
-.chat-text-container {
-    flex: 1;
-    min-width: 0;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-}
-
 /* 유저 닉네임 */
 .chat-user-name {
     color: #888888; /* 톤다운된 회색 */
@@ -123,7 +88,12 @@
 
 /* 일반 채팅 본문 */
 .chat-body-text {
-    color: #cccccc; /* 연한 회색 */
+    color: #cccccc;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 /* 4. 후원(도네이션) 메시지 스타일 (강조 규칙) */
@@ -167,7 +137,7 @@
     background: #000000;
 }
 .live-chat-window::-webkit-scrollbar-thumb {
-    background: #222222;
+    background: #444444;
 }
 .live-chat-window::-webkit-scrollbar-thumb:hover {
     background: #ff0000;
