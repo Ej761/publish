@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.6
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.7
    ========================================================================== */
 
 /* 1. 최상단 웹 폰트(Pretendard) 로드 */
@@ -71,21 +71,25 @@ blockquote.box {
     }
 }
 
-/* 방송 제목 앞 LIVE 뱃지 */
+/* LIVE 뱃지 다듬기 (더 세련되고 날렵하게 엣지 부여) */
 .hdr::before {
     content: "LIVE";
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 19px;
-    padding: 0 7px;
+    height: 20px;
+    /* 19px -> 20px (위아래 숨통 트기) */
+    padding: 0 6px;
+    /* 7px -> 6px (좌우는 타이트하게) */
     background: #ff3b30;
     color: #ffffff;
-    border-radius: 5px;
+    border-radius: 4px;
+    /* 5px -> 4px (조금 더 각지게) */
     font-size: 10px;
-    font-weight: 900;
-    letter-spacing: .03em;
+    font-weight: 800;
+    /* 900 -> 800 (과도한 두께 다이어트) */
+    letter-spacing: .04em;
     animation: livePulse 2s ease-in-out infinite;
 }
 
@@ -114,31 +118,35 @@ blockquote.box {
 }
 
 
-/* 4. 참가자명 앞 ACE 타이틀 삽입 (HTML 수정 불필요) */
+/* -------------------------------------------
+   이모지 사이즈 통합 (em 단위를 버리고 px로 고정) 
+   ------------------------------------------- */
+
+/* 공통 이모지 속성 통합에서 사이즈 관련 속성 제거 */
+.MV::before,
+.DN::before {
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+/* 참가자명 앞 (텍스트와 불꽃 크기 밸런스 조정) */
 .MA::before {
     content: "🔥 ACE :";
-    font-size: 11px;
+    font-size: 12px;
+    /* 11px -> 12px */
     font-weight: 700;
     color: #ff3b30;
-    /* 데스 프레임 톤앤매너에 맞춘 레드 포인트 */
     margin-right: 6px;
     letter-spacing: 0.02em;
     vertical-align: baseline;
 }
 
-
-/* 시청자수 앞 눈 아이콘 */
+/* 시청자수 앞 */
 .MV::before {
-    content: "👁";
-}
-
-/* 3. 공통 이모지 속성에서 MA(선수명) 분리 */
-.MV::before,
-.DN::before {
-    font-size: 1.15em;
-    line-height: 1;
-    margin-right: 2px;
-    vertical-align: text-top;
+    content: "👁️";
+    font-size: 13px;
+    /* 절대값 고정 */
+    margin-right: 3px;
 }
 
 
@@ -217,9 +225,11 @@ blockquote.box {
 }
 
 
-/* 후원 닉네임 앞 돈 아이콘 */
+/* 후원자명 앞 */
 .DN::before {
     content: "💰 ";
+    font-size: 12px;
+    /* 절대값 고정 */
 }
 
 
