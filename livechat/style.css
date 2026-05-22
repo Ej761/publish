@@ -34,14 +34,24 @@
     align-items: center;
     gap: 6px;
 }
-/* 텍스트 앞 빨간색 라이브 점(Dot) 자동 생성 */
+/* 텍스트 앞 라이브(LIVE) 뱃지 자동 생성 및 펄스(숨쉬기) 애니메이션 */
+@keyframes livePulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
 .live-header::before {
-    content: "";
+    content: "LIVE";
     display: inline-block;
-    width: 6px;
-    height: 6px;
     background-color: #ff0000;
-    border-radius: 50%;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 900;
+    padding: 2px 4px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    animation: livePulse 2s ease-in-out infinite;
 }
 
 /* 하단: 에이스 & 뷰어 바 (다크 그레이 박스) */
