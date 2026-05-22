@@ -1,9 +1,9 @@
-/* DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v2.1 */
+/* DEATH FRAME : LIVE STREAMING UI Final */
 
-/* 1. 최상단 웹 폰트(Pretendard) 로드 */
+/* 최상단 Pretendard 폰트 로드 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
-/* 2. 전체 UI 박스 폰트 스택 적용 */
+/* 1. (최상위 컨테이너) 전체 UI 박스 */
 blockquote.box {
     width: 100%;
     max-width: 100%;
@@ -22,11 +22,9 @@ blockquote.box {
     flex-direction: column;
 }
 
-/* 1. 컨테이너 상하 데드 스페이스 축소 */
+/* 2. (상단 헤더) 방송 정보창 그룹 */
 .inf {
     padding: 18px 0 16px;
-    /* 기존 24px 0 20px -> 위아래 다이어트 */
-    /* 나머지 속성 유지 */
     width: 100%;
     background: #0b0b0d;
     box-sizing: border-box;
@@ -36,10 +34,9 @@ blockquote.box {
     align-items: center;
 }
 
-/* 3. 방송 제목 (가로 고정 여백 확보) */
+/* 2.1. 방송 제목 */
 .hdr {
     width: calc(100% - 40px);
-    /* 양옆 20px씩 확실한 숨통 확보 */
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -53,7 +50,7 @@ blockquote.box {
     white-space: nowrap;
 }
 
-/* LIVE 뱃지 깜빡임 애니메이션 */
+/* 2.1.1. LIVE 뱃지 애니메이션 */
 @keyframes livePulse {
     0% {
         opacity: 1;
@@ -68,7 +65,7 @@ blockquote.box {
     }
 }
 
-/* LIVE 뱃지 다듬기 (더 세련되고 날렵하게 엣지 부여) */
+/* 2.1.2. LIVE 뱃지 */
 .hdr::before {
     content: "LIVE";
     flex: 0 0 auto;
@@ -76,24 +73,19 @@ blockquote.box {
     align-items: center;
     justify-content: center;
     height: 20px;
-    /* 19px -> 20px (위아래 숨통 트기) */
     padding: 0 6px;
-    /* 7px -> 6px (좌우는 타이트하게) */
     background: #ff3b30;
     color: #ffffff;
     border-radius: 4px;
-    /* 5px -> 4px (조금 더 각지게) */
     font-size: 10px;
     font-weight: 800;
-    /* 900 -> 800 (과도한 두께 다이어트) */
     letter-spacing: .04em;
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* 2. 상태바 (제목과 동일한 가로 여백 적용) */
+/* 2.2. 상태바 */
 .MB {
     width: calc(100% - 40px);
-    /* 양옆 20px 숨통 확보 */
     margin-top: 16px;
     padding: 0;
     box-sizing: border-box;
@@ -102,7 +94,7 @@ blockquote.box {
     justify-content: space-between;
 }
 
-/* 선수명 영역 + 시청자수 영역 공통 */
+/* 2.2.1. 선수명 + 시청자수 속성 공통 */
 .MA,
 .MV {
     display: inline-flex;
@@ -113,40 +105,32 @@ blockquote.box {
     font-weight: 500;
 }
 
-
-/* -------------------------------------------
-   이모지 사이즈 통합 (em 단위를 버리고 px로 고정) 
-   ------------------------------------------- */
-
-/* 공통 이모지 속성 통합에서 사이즈 관련 속성 제거 */
+/* 2.2.2. 공통 이모지 속성 */
 .MV::before,
 .DN::before {
     line-height: 1;
     vertical-align: text-top;
 }
 
-/* 참가자명 앞 (다크 레드로 시각적 위계 조정 및 장르 분위기 유지) */
+/* 2.2.3. 참가자명 앞 */
 .MA::before {
     content: "🔥 ACE :";
     font-size: 12px;
     font-weight: 700;
     color: #b32821;
-    /* 탁하고 어두운 핏빛 레드로 변경 */
     margin-right: 6px;
     letter-spacing: 0.02em;
     vertical-align: baseline;
 }
 
-/* 시청자수 앞 */
+/* 2.2.4. 시청자수 앞 */
 .MV::before {
     content: "👁️";
     font-size: 13px;
-    /* 절대값 고정 */
     margin-right: 3px;
 }
 
-
-/* 실시간 채팅창 영역 */
+/* 3. (하단 뷰포트) 실시간 채팅창 */
 .CW {
     width: 94%;
     height: 232px;
@@ -167,8 +151,7 @@ blockquote.box {
     scrollbar-gutter: stable;
 }
 
-
-/* 1. 일반 채팅 단위 (여백 미세조정) */
+/* 3.1. 일반 채팅 단위 */
 .CR {
     width: 100%;
     display: flex;
@@ -178,8 +161,7 @@ blockquote.box {
     box-sizing: border-box;
 }
 
-
-/* 2. 닉네임 (마이크로 타이포그래피) */
+/* 3.1.1. 닉네임 */
 .CN {
     color: #66666e;
     font-size: 11px;
@@ -187,8 +169,7 @@ blockquote.box {
     letter-spacing: -0.01em;
 }
 
-
-/* 3. 본문 텍스트 (세련된 가독성) */
+/* 3.1.2. 채팅 */
 .CT {
     color: #eeeeee;
     font-size: 14px;
@@ -197,8 +178,7 @@ blockquote.box {
     word-break: break-all;
 }
 
-
-/* 4. 후원 채팅 (페이드 아웃 그라데이션) */
+/* 3.2. 후원 채팅 */
 .DR {
     width: 100%;
     display: flex;
@@ -208,15 +188,11 @@ blockquote.box {
     padding-left: 10px;
     box-sizing: border-box;
     border-left: 2px solid #ff3b30;
-
-    /* 신규 속성: 8% 투명도의 빨간색에서 완전 투명으로 빠지는 그라데이션 */
     background: linear-gradient(90deg, rgba(255, 59, 48, 0.08) 0%, transparent 100%);
     border-radius: 0 4px 4px 0;
-    /* 우측 끝부분만 아주 살짝 둥글림 */
 }
 
-
-/* 5. 후원 닉네임 */
+/* 3.2.1. 후원 닉네임 */
 .DN {
     color: #ff8a84;
     font-size: 11px;
@@ -224,39 +200,17 @@ blockquote.box {
     letter-spacing: -0.01em;
 }
 
-
-/* 후원자명 앞 */
+/* 3.2.2. 후원자명 앞 */
 .DN::before {
     content: "💰 ";
     font-size: 12px;
-    /* 절대값 고정 */
 }
 
-
-/* 6. 후원 본문 */
+/* 3.2.3. 후원 본문 */
 .DT {
     color: #ff3b30;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
     word-break: break-all;
-}
-
-
-/* 채팅창 스크롤바 전체 폭 */
-.CW::-webkit-scrollbar {
-    width: 6px;
-}
-
-
-/* 채팅창 스크롤바 배경 */
-.CW::-webkit-scrollbar-track {
-    background: #050506;
-}
-
-
-/* 채팅창 스크롤바 막대 */
-.CW::-webkit-scrollbar-thumb {
-    background: #34343a;
-    border-radius: 999px;
 }
