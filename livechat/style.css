@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.8
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.9
    ========================================================================== */
 
 /* 1. 최상단 웹 폰트(Pretendard) 로드 */
@@ -38,22 +38,21 @@ blockquote.box {
     align-items: center;
 }
 
-/* 3. 방송 제목 (반응형 사이즈 및 한줄 고정) */
+/* 3. 방송 제목 (가로 고정 여백 확보) */
 .hdr {
-    width: 94%;
+    width: calc(100% - 40px);
+    /* 양옆 20px씩 확실한 숨통 확보 */
     box-sizing: border-box;
     display: flex;
     align-items: center;
     gap: 12px;
     color: #f5f5f5;
     font-size: clamp(15px, 4vw, 18px);
-    /* 모바일 15px, 데스크톱 18px */
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
     padding: 0;
     white-space: nowrap;
-    /* 강제 줄바꿈 방지 */
 }
 
 /* LIVE 뱃지 깜빡임 애니메이션 */
@@ -93,12 +92,11 @@ blockquote.box {
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* 2. 타이틀과 메타 정보 사이 공간 확보 */
+/* 2. 상태바 (제목과 동일한 가로 여백 적용) */
 .MB {
+    width: calc(100% - 40px);
+    /* 양옆 20px 숨통 확보 */
     margin-top: 16px;
-    /* 기존 14px -> 16px 로 숨통 틔우기 */
-    /* 나머지 속성 유지 */
-    width: 94%;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -129,13 +127,13 @@ blockquote.box {
     vertical-align: text-top;
 }
 
-/* 참가자명 앞 (텍스트 채도 낮춤) */
+/* 참가자명 앞 (다크 레드로 시각적 위계 조정 및 장르 분위기 유지) */
 .MA::before {
     content: "🔥 ACE :";
     font-size: 12px;
     font-weight: 700;
-    color: #ff7670;
-    /* 기존 #ff3b30 -> 시선 강탈을 막는 코랄 톤으로 변경 */
+    color: #b32821;
+    /* 탁하고 어두운 핏빛 레드로 변경 */
     margin-right: 6px;
     letter-spacing: 0.02em;
     vertical-align: baseline;
