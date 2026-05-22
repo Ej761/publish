@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.7
+   DEATH FRAME SEASON 2 : LIVE STREAMING UI SYSTEM v1.8
    ========================================================================== */
 
 /* 1. 최상단 웹 폰트(Pretendard) 로드 */
@@ -24,15 +24,15 @@ blockquote.box {
     flex-direction: column;
 }
 
-/* 1. 방송 정보 카드 영역 여백 밸런스 조정 */
+/* 1. 컨테이너 상하 데드 스페이스 축소 */
 .inf {
+    padding: 18px 0 16px;
+    /* 기존 24px 0 20px -> 위아래 다이어트 */
+    /* 나머지 속성 유지 */
     width: 100%;
     background: #0b0b0d;
-    padding: 24px 0 20px;
-    /* 상하 패딩 미세 조정 (시각적 무게중심 안정화) */
     box-sizing: border-box;
     border-bottom: 1px solid #1a1a20;
-    /* 선 대비를 낮춰서 눈에 덜 띄게 변경 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,13 +93,13 @@ blockquote.box {
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* 2. 상태바 좌측 정렬 강제 일치 */
+/* 2. 타이틀과 메타 정보 사이 공간 확보 */
 .MB {
+    margin-top: 16px;
+    /* 기존 14px -> 16px 로 숨통 틔우기 */
+    /* 나머지 속성 유지 */
     width: 94%;
-    margin-top: 14px;
-    /* 제목과의 간격을 16px -> 14px로 압축 */
     padding: 0;
-    /* 기존 padding: 0 4px; 삭제 (정렬 어긋남의 핵심 원인) */
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -129,13 +129,13 @@ blockquote.box {
     vertical-align: text-top;
 }
 
-/* 참가자명 앞 (텍스트와 불꽃 크기 밸런스 조정) */
+/* 참가자명 앞 (텍스트 채도 낮춤) */
 .MA::before {
     content: "🔥 ACE :";
     font-size: 12px;
-    /* 11px -> 12px */
     font-weight: 700;
-    color: #ff3b30;
+    color: #ff7670;
+    /* 기존 #ff3b30 -> 시선 강탈을 막는 코랄 톤으로 변경 */
     margin-right: 6px;
     letter-spacing: 0.02em;
     vertical-align: baseline;
