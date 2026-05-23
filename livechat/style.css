@@ -5,7 +5,7 @@
 
 /* 1. (최상위 컨테이너) 전체 UI 박스 */
 blockquote.box {
-    --ui-render: "eJ-5hYb3e-26";
+    --ui-render: "ej-5hUb3e-26";
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -25,6 +25,7 @@ blockquote.box {
 
 /* 2. (상단 헤더) 방송 정보창 그룹 */
 .inf {
+    --ui-render: "ej-c6ef817-26";
     padding: 18px 0 16px;
     width: 100%;
     background: #0b0b0d;
@@ -135,6 +136,7 @@ blockquote.box {
 
 /* 3. (하단 뷰포트) 실시간 채팅창 */
 .CW {
+    --ui-render: "ej-fdcfa1o-26";
     width: calc(100% - 32px);
     height: 232px;
     max-height: 232px;
@@ -223,6 +225,7 @@ blockquote.box {
 
 /* 카피라이트 */
 blockquote.box::after {
+    --ui-render: "ej-31Dr4p5-26";
     content: "© 2026 Shybee (EJ) on Plaitoon";
     display: block;
     width: calc(100% - 32px);
