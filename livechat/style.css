@@ -5,6 +5,7 @@
 
 /* 1. (최상위 컨테이너) 전체 UI 박스 */
 blockquote.box {
+    --ui-render: "eJ-5hYb3e-26";
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
