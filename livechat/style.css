@@ -1,4 +1,4 @@
-/* DEATH FRAME : LIVE STREAMING UI rere3.6 */
+/* DEATH FRAME : LIVE STREAMING UI final */
 
 /* 최상단 Pretendard 폰트 로드 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -134,7 +134,7 @@ blockquote.box {
     margin-right: 3px;
 }
 
-/* 3. (하단 뷰포트) 실시간 채팅창 (너비 통일 및 하단 여백 축소) */
+/* 3. (하단 뷰포트) 실시간 채팅창 */
 .CW {
     width: calc(100% - 32px);
     height: 232px;
@@ -150,9 +150,7 @@ blockquote.box {
     background: #050506;
     border-radius: 10px;
     border: none !important;
-    /* 플랫폼 강제 선 원천 차단 */
     box-shadow: none !important;
-    /* 플랫폼 강제 그림자 원천 차단 */
     outline: none !important;
     display: flex;
     flex-direction: column;
@@ -224,7 +222,7 @@ blockquote.box {
     word-break: break-all;
 }
 
-/* 카피라이트 고정 (최하단, 녹색 선에 우측 끝단 강제 밀착) */
+/* 카피라이트 */
 blockquote.box::after {
     content: "© 2026 Shybee (EJ) on Plaitoon";
     display: block;
