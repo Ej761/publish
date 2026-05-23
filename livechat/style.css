@@ -1,4 +1,4 @@
-/* DEATH FRAME : LIVE STREAMING UI re3.0 */
+/* DEATH FRAME : LIVE STREAMING UI re3.1 */
 
 /* 최상단 Pretendard 폰트 로드 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -28,15 +28,15 @@ blockquote.box {
     width: 100%;
     background: #0b0b0d;
     box-sizing: border-box;
-    border-bottom: 1px solid #1a1a20;
+    /* border-bottom 완전히 삭제됨 */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* 2.1. 방송 제목 */
+/* 2.1. 방송 제목 (너비 통일) */
 .hdr {
-    width: calc(100% - 40px);
+    width: calc(100% - 32px);
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -83,9 +83,9 @@ blockquote.box {
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* 2.2. 상태바 */
+/* 2.2. 상태바 (너비 통일) */
 .MB {
-    width: calc(100% - 40px);
+    width: calc(100% - 32px);
     margin-top: 16px;
     padding: 0;
     box-sizing: border-box;
@@ -130,13 +130,13 @@ blockquote.box {
     margin-right: 3px;
 }
 
-/* 3. (하단 뷰포트) 실시간 채팅창 */
+/* 3. (하단 뷰포트) 실시간 채팅창 (너비 통일 및 하단 여백 축소) */
 .CW {
-    width: 94%;
+    width: calc(100% - 32px);
     height: 232px;
     max-height: 232px;
     min-height: 232px;
-    margin: 0 auto 20px;
+    margin: 0 auto 12px;
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior: contain;
@@ -215,16 +215,16 @@ blockquote.box {
     word-break: break-all;
 }
 
-/* 카피라이트 고정 (최하단) */
+/* 카피라이트 고정 (최하단, 너비 통일 및 패딩 제거) */
 blockquote.box::after {
     content: "© 2026 Shybee (EJ) on Plaitoon";
     display: block;
-    width: 94%;
+    width: calc(100% - 32px);
     margin: 0 auto 16px;
-    padding: 0 16px 0 0;
+    padding: 0;
     text-align: right;
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.08);
     box-sizing: border-box;
     font-style: normal;
     line-height: 1;
