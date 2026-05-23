@@ -1,4 +1,4 @@
-/* DEATH FRAME : LIVE STREAMING UI re3.1 */
+/* DEATH FRAME : LIVE STREAMING UI re3.2 */
 
 /* 최상단 Pretendard 폰트 로드 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -28,7 +28,11 @@ blockquote.box {
     width: 100%;
     background: #0b0b0d;
     box-sizing: border-box;
-    /* border-bottom 완전히 삭제됨 */
+    border: none !important;
+    /* 플랫폼 강제 선 원천 차단 */
+    box-shadow: none !important;
+    /* 플랫폼 강제 그림자 원천 차단 */
+    outline: none !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +149,11 @@ blockquote.box {
     box-sizing: border-box;
     background: #050506;
     border-radius: 10px;
+    border: none !important;
+    /* 플랫폼 강제 선 원천 차단 */
+    box-shadow: none !important;
+    /* 플랫폼 강제 그림자 원천 차단 */
+    outline: none !important;
     display: flex;
     flex-direction: column;
     gap: 10px;
