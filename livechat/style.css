@@ -1,4 +1,4 @@
-/* DEATH FRAME : LIVE STREAMING UI Final */
+/* DEATH FRAME : LIVE STREAMING UI 3.0 */
 
 /* 최상단 Pretendard 폰트 로드 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -213,4 +213,19 @@ blockquote.box {
     font-weight: 600;
     line-height: 1.5;
     word-break: break-all;
+}
+
+/* 카피라이트 고정 */
+blockquote.box::after {
+    content: "© 2026 Shybee (EJ) on Plaitoon";
+    display: block;
+    width: 94%;
+    margin: 0 auto;
+    padding: 10px 16px;
+    text-align: right;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.06);
+    border-top: 1px solid #1a1a20;
+    box-sizing: border-box;
+    font-style: normal;
 }
