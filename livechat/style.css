@@ -30,9 +30,7 @@ blockquote.box {
     background: #0b0b0d;
     box-sizing: border-box;
     border: none !important;
-    /* 플랫폼 강제 선 원천 차단 */
     box-shadow: none !important;
-    /* 플랫폼 강제 그림자 원천 차단 */
     outline: none !important;
     display: flex;
     flex-direction: column;
