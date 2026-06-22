@@ -178,6 +178,61 @@ blockquote.tw-ui span.tw.npc [class*="button"] {
     height: 0 !important;
 }
 
+/* NPC 프로필 이미지 슬롯 */
+blockquote.tw-ui span.tw.npc > .av {
+    position: absolute !important;
+    left: 16px !important;
+    top: 14px !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    z-index: 20 !important;
+    background: #000000 !important;
+    display: block !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+
+blockquote.tw-ui span.tw.npc > .av > * {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+blockquote.tw-ui span.tw.npc > .av img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+blockquote.tw-ui span.tw.npc > .av button,
+blockquote.tw-ui span.tw.npc > .av svg,
+blockquote.tw-ui span.tw.npc > .av [class*="share"],
+blockquote.tw-ui span.tw.npc > .av [class*="button"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
 /* 트친 프로필 이미지 풀 */
 blockquote.tw-ui span.tw.ibf.p1::before {
     background-image: url('https://raw.githack.com/Ej761/publish/main/twitter/friend_p1.webp') !important;
