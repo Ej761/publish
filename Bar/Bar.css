@@ -1,42 +1,32 @@
+blockquote.ui,
+blockquote.ui * {
+    box-sizing: border-box;
+}
+
 blockquote.ui {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #050507;
+    border: 1px solid #4a3530;
+    border-radius: 8px;
+    color: #f4eee8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    text-align: left;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
 }
 
-blockquote.ui .stg {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 1024 / 407 !important;
-    overflow: hidden !important;
-}
-
-blockquote.ui .bg {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-
-    background-image: url('https://raw.githack.com/Ej761/publish/bd79b3e/Bar/Bar.webp') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: cover !important;
-}
-
-blockquote.ui .guest-test {
-    position: absolute !important;
-    left: 36.44% !important;
-    bottom: 17.4% !important;
-    z-index: 999 !important;
-
-    width: 25.52% !important;
-    aspect-ratio: 3 / 4 !important;
-
-    background-image: url('https://raw.githack.com/Ej761/publish/bd79b3e/Bar/G01-1.webp') !important;
-    background-repeat: no-repeat !important;
-    background-position: center bottom !important;
-    background-size: contain !important;
-
-    outline: 3px solid red !important;
+blockquote.ui .bar-stage {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1024 / 407;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #050507;
+    background-repeat: no-repeat;
 }
