@@ -2,36 +2,25 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    margin: 0;
+blockquote.ui {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
     padding: 0;
-}
 
-body {
-    min-height: 100vh;
-    padding: 20px;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
 
     color: #f4eee8;
-    background: #09090c;
-
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* 전체 UI */
-
-.ui {
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-
-    overflow: hidden;
+    background: #111014;
 
     border: 1px solid #4a3530;
     border-radius: 8px;
 
-    background: #111014;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    text-align: left;
 
     box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
 }
