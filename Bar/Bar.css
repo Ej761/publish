@@ -80,8 +80,8 @@ blockquote.ui .tabs label:hover {
     background: #211a20;
 }
 
-blockquote.ui:has(#tab-bar:checked) .tabs label[for="tab-bar"],
-blockquote.ui:has(#tab-menu:checked) .tabs label[for="tab-menu"] {
+blockquote.ui:has(.tb:checked) .tabs .bt,
+blockquote.ui:has(.tm:checked) .tabs .mt {
     color: #ffd6bc;
     background: #2b1d1d;
 
@@ -100,11 +100,11 @@ blockquote.ui .pnl {
     overflow: hidden;
 }
 
-blockquote.ui:has(#tab-bar:checked) .bar {
+blockquote.ui:has(.tb:checked) .bar {
     display: block;
 }
 
-blockquote.ui:has(#tab-menu:checked) .menu {
+blockquote.ui:has(.tm:checked) .menu {
     display: block;
 }
 
@@ -372,16 +372,16 @@ blockquote.ui .n label:hover {
 
 /* 메뉴 페이지 전환 */
 
-blockquote.ui:has(#m1:checked) .p1,
-blockquote.ui:has(#m2:checked) .p2,
-blockquote.ui:has(#m3:checked) .p3,
-blockquote.ui:has(#m4:checked) .p4,
-blockquote.ui:has(#m5:checked) .p5,
-blockquote.ui:has(#m6:checked) .p6,
-blockquote.ui:has(#m7:checked) .p7,
-blockquote.ui:has(#m8:checked) .p8,
-blockquote.ui:has(#m9:checked) .p9,
-blockquote.ui:has(#m10:checked) .p10 {
+blockquote.ui:has(.m1:checked) .p1,
+blockquote.ui:has(.m2:checked) .p2,
+blockquote.ui:has(.m3:checked) .p3,
+blockquote.ui:has(.m4:checked) .p4,
+blockquote.ui:has(.m5:checked) .p5,
+blockquote.ui:has(.m6:checked) .p6,
+blockquote.ui:has(.m7:checked) .p7,
+blockquote.ui:has(.m8:checked) .p8,
+blockquote.ui:has(.m9:checked) .p9,
+blockquote.ui:has(.m10:checked) .p10 {
     display: grid;
 }
 
