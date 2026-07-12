@@ -1,15 +1,19 @@
-* {
+blockquote.ui,
+blockquote.ui * {
     box-sizing: border-box;
 }
+
+
+/* 전체 UI */
 
 blockquote.ui {
     width: 100%;
     max-width: 100%;
+
     margin: 0 auto;
     padding: 0;
 
     display: block;
-    box-sizing: border-box;
     overflow: hidden;
 
     color: #f4eee8;
@@ -28,7 +32,7 @@ blockquote.ui {
 
 /* 라디오 숨김 */
 
-.ui>input[type="radio"] {
+blockquote.ui input[type="radio"] {
     position: absolute;
 
     width: 1px;
@@ -41,7 +45,7 @@ blockquote.ui {
 
 /* 상단 탭 */
 
-.tabs {
+blockquote.ui .tabs {
     display: flex;
 
     width: 100%;
@@ -51,7 +55,7 @@ blockquote.ui {
     border-bottom: 1px solid #4a3530;
 }
 
-.tabs label {
+blockquote.ui .tabs label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +75,7 @@ blockquote.ui {
         background 0.15s ease;
 }
 
-.tabs label:hover {
+blockquote.ui .tabs label:hover {
     color: #f0d5c4;
     background: #211a20;
 }
@@ -80,13 +84,14 @@ blockquote.ui:has(#tab-bar:checked) .tabs label[for="tab-bar"],
 blockquote.ui:has(#tab-menu:checked) .tabs label[for="tab-menu"] {
     color: #ffd6bc;
     background: #2b1d1d;
+
     box-shadow: inset 0 -3px 0 #d77953;
 }
 
 
 /* 패널 */
 
-.pnl {
+blockquote.ui .pnl {
     display: none;
 
     width: 100%;
@@ -106,7 +111,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* BAR */
 
-.stg {
+blockquote.ui .stg {
     position: relative;
 
     width: 100%;
@@ -117,7 +122,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
     background: #050507;
 }
 
-.bg {
+blockquote.ui .bg {
     display: block;
 
     width: 100%;
@@ -129,7 +134,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 손님 자리 */
 
-.s {
+blockquote.ui .s {
     position: absolute;
 
     top: 1%;
@@ -142,22 +147,22 @@ blockquote.ui:has(#tab-menu:checked) .menu {
     pointer-events: none;
 }
 
-.s1 {
+blockquote.ui .s1 {
     left: 22%;
 }
 
-.s2 {
+blockquote.ui .s2 {
     left: 49.2%;
 }
 
-.s3 {
+blockquote.ui .s3 {
     left: 78%;
 }
 
 
 /* 손님 */
 
-.g {
+blockquote.ui .g {
     position: absolute;
 
     left: 50%;
@@ -179,7 +184,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 칵테일 */
 
-.d {
+blockquote.ui .d {
     position: absolute;
 
     left: 50%;
@@ -200,7 +205,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* MENU */
 
-.menu {
+blockquote.ui .menu {
     position: relative;
 
     background:
@@ -215,7 +220,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 메뉴 페이지 */
 
-.p {
+blockquote.ui .p {
     display: none;
 
     position: absolute;
@@ -243,7 +248,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 메뉴 이미지 */
 
-.p>img {
+blockquote.ui .p>img {
     display: block;
 
     grid-column: 1;
@@ -270,7 +275,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 메뉴 텍스트 */
 
-.c {
+blockquote.ui .c {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -284,7 +289,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
     padding-right: 2%;
 }
 
-.c::before {
+blockquote.ui .c::before {
     content: var(--name);
 
     display: block;
@@ -300,7 +305,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
     letter-spacing: -0.02em;
 }
 
-.c::after {
+blockquote.ui .c::after {
     content:
         var(--taste) "\A"
         var(--desc);
@@ -319,7 +324,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
 
 /* 메뉴 이동 */
 
-.n {
+blockquote.ui .n {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -334,7 +339,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
     font-size: 13px;
 }
 
-.n label {
+blockquote.ui .n label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -359,7 +364,7 @@ blockquote.ui:has(#tab-menu:checked) .menu {
         color 0.15s ease;
 }
 
-.n label:hover {
+blockquote.ui .n label:hover {
     color: #fff3eb;
     background: #3a282b;
 }
@@ -383,61 +388,61 @@ blockquote.ui:has(#m10:checked) .p10 {
 
 /* 칵테일 데이터 */
 
-.A3 {
+blockquote.ui .A3 {
     --name: "글래스 진";
     --taste: "차갑고 드라이함 (A3)";
     --desc: "차갑고 투명한 첫맛. 정신 차리고 싶은 사람에게 나가는 술.";
 }
 
-.B3 {
+blockquote.ui .B3 {
     --name: "허니 벨벳";
     --taste: "달고 부드러움 (B3)";
     --desc: "달고 부드러운 위장용 위로. 오늘만큼은 덜 아프고 싶은 당신에게.";
 }
 
-.C3 {
+blockquote.ui .C3 {
     --name: "나이트 비터";
     --taste: "쓰고 묵직함 (C3)";
     --desc: "쓰고 묵직한 밤의 맛. 볼 장 다 본 사람에게 어울림.";
 }
 
-.A2B1 {
+blockquote.ui .A2B1 {
     --name: "허니 글래스";
     --taste: "청량한 단맛 (A2B1)";
     --desc: "맑고 가벼운 단맛. 기분 전환용으로 무난한 칵테일.";
 }
 
-.A1B2 {
+blockquote.ui .A1B2 {
     --name: "벨벳 글레이즈";
     --taste: "부드럽고 은은하게 차가움 (A1B2)";
     --desc: "부드럽게 감기지만 살짝 차가운 술. 친절한 거리감.";
 }
 
-.A2C1 {
+blockquote.ui .A2C1 {
     --name: "블랙 글래스";
     --taste: "차갑고 쌉싸름함 (A2C1)";
     --desc: "투명한 맑음과 뒤늦은 쓴맛. 기분은 차갑게, 표정은 더 차갑게.";
 }
 
-.A1C2 {
+blockquote.ui .A1C2 {
     --name: "미드나이트 진";
     --taste: "묵직하고 드라이 (A1C2)";
     --desc: "씁쓸한 어른의 맛, 끝은 의외로 깔끔. 버티는 사람을 위한 심야용 술.";
 }
 
-.B2C1 {
+blockquote.ui .B2C1 {
     --name: "선셋 블라인드";
     --taste: "달콤쌉싸름함 (B2C1)";
     --desc: "달콤하게 시작해서 어둡게 남는 술. 괜찮은 척하기 좋음.";
 }
 
-.B1C2 {
+blockquote.ui .B1C2 {
     --name: "딥 허밍";
     --taste: "무겁고 부드러운 쓴맛 (B1C2)";
     --desc: "낮게 울리는 쓴맛. 오늘은 조용히 망한 기분.";
 }
 
-.ABC1 {
+blockquote.ui .ABC1 {
     --name: "라스트 아워";
     --taste: "균형 잡힌 복합향 (ABC1)";
     --desc: "세 맛이 균형 잡힌 마감 직전의 술. 뭘 마셔야 할지 모를 때.";
@@ -448,24 +453,20 @@ blockquote.ui:has(#m10:checked) .p10 {
 
 @media screen and (max-width: 700px) {
 
-    body {
-        padding: 0;
-    }
-
     blockquote.ui {
         border-radius: 0;
     }
 
-    .tabs {
+    blockquote.ui .tabs {
         height: 46px;
     }
 
-    .tabs label {
+    blockquote.ui .tabs label {
         font-size: 16px;
         letter-spacing: 3px;
     }
 
-    .p {
+    blockquote.ui .p {
         grid-template-columns:
             31% minmax(0, 1fr);
 
@@ -477,36 +478,36 @@ blockquote.ui:has(#m10:checked) .p10 {
         padding: 7px 10px 2px;
     }
 
-    .p>img {
+    blockquote.ui .p>img {
         width: min(100%, 130px);
         max-height: 88%;
 
         border-radius: 5px;
     }
 
-    .c {
+    blockquote.ui .c {
         padding-right: 0;
     }
 
-    .c::before {
+    blockquote.ui .c::before {
         margin-bottom: 4px;
 
         font-size: clamp(15px, 5vw, 24px);
         line-height: 1.08;
     }
 
-    .c::after {
+    blockquote.ui .c::after {
         font-size: clamp(10px, 3.15vw, 15px);
         line-height: 1.35;
     }
 
-    .n {
+    blockquote.ui .n {
         gap: 10px;
 
         font-size: 10px;
     }
 
-    .n label {
+    blockquote.ui .n label {
         width: 34px;
         height: 27px;
 
