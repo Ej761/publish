@@ -82,8 +82,8 @@ blockquote.ui .tabs label:hover {
     background: #211a20;
 }
 
-blockquote.ui:has(.tb:checked) .tabs .bt,
-blockquote.ui:has(.tm:checked) .tabs .mt {
+blockquote.ui .tb:checked~.tabs .bt,
+blockquote.ui .tm:checked~.tabs .mt {
     color: #ffd6bc;
     background: #2b1d1d;
 
@@ -102,11 +102,11 @@ blockquote.ui .pnl {
     overflow: hidden;
 }
 
-blockquote.ui:has(.tb:checked) .bar {
+blockquote.ui .tb:checked~.bar {
     display: block;
 }
 
-blockquote.ui:has(.tm:checked) .menu {
+blockquote.ui .tm:checked~.menu {
     display: block;
 }
 
@@ -125,6 +125,9 @@ blockquote.ui .stg {
 }
 
 blockquote.ui .bg {
+    position: relative;
+    z-index: 0;
+
     display: block;
 
     width: 100%;
@@ -138,6 +141,7 @@ blockquote.ui .bg {
 
 blockquote.ui .s {
     position: absolute;
+    z-index: 1;
 
     top: 1%;
 
@@ -166,6 +170,7 @@ blockquote.ui .s3 {
 
 blockquote.ui .g {
     position: absolute;
+    z-index: 2;
 
     left: 50%;
     bottom: 17.4%;
@@ -188,6 +193,7 @@ blockquote.ui .g {
 
 blockquote.ui .d {
     position: absolute;
+    z-index: 3;
 
     left: 50%;
     bottom: 5%;
@@ -374,16 +380,16 @@ blockquote.ui .n label:hover {
 
 /* 메뉴 페이지 전환 */
 
-blockquote.ui:has(.m1:checked) .p1,
-blockquote.ui:has(.m2:checked) .p2,
-blockquote.ui:has(.m3:checked) .p3,
-blockquote.ui:has(.m4:checked) .p4,
-blockquote.ui:has(.m5:checked) .p5,
-blockquote.ui:has(.m6:checked) .p6,
-blockquote.ui:has(.m7:checked) .p7,
-blockquote.ui:has(.m8:checked) .p8,
-blockquote.ui:has(.m9:checked) .p9,
-blockquote.ui:has(.m10:checked) .p10 {
+blockquote.ui .m1:checked~.menu .p1,
+blockquote.ui .m2:checked~.menu .p2,
+blockquote.ui .m3:checked~.menu .p3,
+blockquote.ui .m4:checked~.menu .p4,
+blockquote.ui .m5:checked~.menu .p5,
+blockquote.ui .m6:checked~.menu .p6,
+blockquote.ui .m7:checked~.menu .p7,
+blockquote.ui .m8:checked~.menu .p8,
+blockquote.ui .m9:checked~.menu .p9,
+blockquote.ui .m10:checked~.menu .p10 {
     display: grid;
 }
 
