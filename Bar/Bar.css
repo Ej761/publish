@@ -76,11 +76,10 @@ blockquote.ui {
     background: #211a20;
 }
 
-#tab-bar:checked~.tabs label[for="tab-bar"],
-#tab-menu:checked~.tabs label[for="tab-menu"] {
+blockquote.ui:has(#tab-bar:checked) .tabs label[for="tab-bar"],
+blockquote.ui:has(#tab-menu:checked) .tabs label[for="tab-menu"] {
     color: #ffd6bc;
     background: #2b1d1d;
-
     box-shadow: inset 0 -3px 0 #d77953;
 }
 
@@ -96,11 +95,11 @@ blockquote.ui {
     overflow: hidden;
 }
 
-#tab-bar:checked~.bar {
+blockquote.ui:has(#tab-bar:checked) .bar {
     display: block;
 }
 
-#tab-menu:checked~.menu {
+blockquote.ui:has(#tab-menu:checked) .menu {
     display: block;
 }
 
@@ -368,16 +367,16 @@ blockquote.ui {
 
 /* 메뉴 페이지 전환 */
 
-#m1:checked~.menu .p1,
-#m2:checked~.menu .p2,
-#m3:checked~.menu .p3,
-#m4:checked~.menu .p4,
-#m5:checked~.menu .p5,
-#m6:checked~.menu .p6,
-#m7:checked~.menu .p7,
-#m8:checked~.menu .p8,
-#m9:checked~.menu .p9,
-#m10:checked~.menu .p10 {
+blockquote.ui:has(#m1:checked) .p1,
+blockquote.ui:has(#m2:checked) .p2,
+blockquote.ui:has(#m3:checked) .p3,
+blockquote.ui:has(#m4:checked) .p4,
+blockquote.ui:has(#m5:checked) .p5,
+blockquote.ui:has(#m6:checked) .p6,
+blockquote.ui:has(#m7:checked) .p7,
+blockquote.ui:has(#m8:checked) .p8,
+blockquote.ui:has(#m9:checked) .p9,
+blockquote.ui:has(#m10:checked) .p10 {
     display: grid;
 }
 
@@ -453,7 +452,7 @@ blockquote.ui {
         padding: 0;
     }
 
-    .ui {
+    blockquote.ui {
         border-radius: 0;
     }
 
