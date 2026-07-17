@@ -29,4 +29,19 @@ blockquote.ui .bar-stage {
     overflow: hidden;
     background-color: #050507;
     background-repeat: no-repeat;
+    position: relative;
+    /* 추가: 아래 오버레이의 기준점 */
+}
+
+/* ↓↓↓ 추가된 부분. 완성된 결과물 위에 스캔라인 */
+
+blockquote.ui .bar-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 50%);
+    background-size: 100% 3px;
+    background-repeat: repeat;
 }
