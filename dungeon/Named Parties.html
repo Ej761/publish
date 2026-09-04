@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《전(全) 마왕성 관측 시스템》 네임드 파티의 패러디 원작과 원본 프롬프트 안내">
+  <title>네임드 파티 패러디 원작 안내</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0a0d14;
+      --navy: #0d1423;
+      --navy-2: #15243f;
+      --blue: #1f55bd;
+      --blue-soft: #86a8e8;
+      --gold: #dfb94d;
+      --paper: #f2eee4;
+      --paper-2: #e5ddcb;
+      --text: #171717;
+      --muted: #aeb9cc;
+      --line: #394b6b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: #eef1f6;
+      background:
+        radial-gradient(circle at 15% 4%, rgba(35, 86, 178, .26), transparent 27rem),
+        linear-gradient(180deg, #0d1423 0%, #070a10 52%, #0d101a 100%);
+      font-family: "Noto Sans KR", sans-serif;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .17;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    main {
+      width: min(100% - 32px, 940px);
+      margin: 0 auto;
+      padding: 54px 0 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--blue-soft);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+    }
+
+    h1 {
+      margin: 0;
+      color: #fff;
+      font-family: "Black Han Sans", sans-serif;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+
+    .gold-rule {
+      width: 84px;
+      height: 4px;
+      margin: 18px 0 28px;
+      background: var(--gold);
+      box-shadow: 9px 6px 0 var(--blue);
+    }
+
+    .purchase-note {
+      position: relative;
+      width: calc(100% - 14px);
+      margin: 0 auto 36px;
+      padding: 25px 26px 23px;
+      color: var(--text);
+      background: var(--paper);
+      border: 1px solid #d4c9b3;
+      box-shadow: 8px 9px 0 var(--blue), 12px 13px 0 var(--gold);
+      transform: rotate(-.8deg);
+    }
+
+    .purchase-note::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 104px;
+      height: 22px;
+      background: rgba(214, 194, 145, .72);
+      box-shadow: 0 1px 3px rgba(0,0,0,.13);
+      transform: translateX(-50%) rotate(2deg);
+    }
+
+    .purchase-note p {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+
+    .purchase-note p:last-child { margin-bottom: 0; }
+
+    .purchase-note strong { font-weight: 900; }
+
+    .prompt-emphasis { color: #b42318; }
+
+    .version-note {
+      margin: 0 4px 38px;
+      color: #dce2ec;
+      font-size: .94rem;
+      line-height: 1.8;
+      letter-spacing: -.02em;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 46px;
+    }
+
+    .guide-panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(17, 26, 43, .84);
+      box-shadow: 5px 5px 0 rgba(31, 85, 189, .42);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -.035em;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      flex: none;
+      background: var(--gold);
+    }
+
+    .guide-panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guide-panel li {
+      position: relative;
+      margin: 0 0 11px;
+      padding-left: 17px;
+      color: #dce2ec;
+      font-size: .94rem;
+      line-height: 1.72;
+    }
+
+    .guide-panel li:last-child { margin-bottom: 0; }
+
+    .guide-panel li::before {
+      content: "";
+      position: absolute;
+      top: .72em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .guide-panel strong { color: #fff; }
+
+    .party-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .party-heading h2 {
+      margin: 0;
+      color: #fff;
+      font-family: "Black Han Sans", sans-serif;
+      font-size: clamp(1.65rem, 4vw, 2.45rem);
+      line-height: 1.1;
+      font-weight: 400;
+      letter-spacing: -.035em;
+    }
+
+    .party-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+      font-weight: 700;
+    }
+
+    .party-list {
+      display: grid;
+      gap: 17px;
+    }
+
+    details.party-card {
+      overflow: hidden;
+      color: var(--text);
+      background: var(--paper);
+      border: 1px solid #d0c6b2;
+      box-shadow: 6px 7px 0 rgba(31, 85, 189, .72);
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    details.party-card:nth-child(3n + 1) { transform: rotate(-.18deg); }
+    details.party-card:nth-child(3n + 2) { transform: rotate(.14deg); }
+
+    details.party-card:hover,
+    details.party-card:focus-within,
+    details.party-card[open] {
+      border-color: var(--gold);
+      box-shadow: 8px 9px 0 var(--blue), 11px 12px 0 rgba(223, 185, 77, .82);
+      transform: rotate(0) translateY(-2px);
+    }
+
+    summary {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 42px;
+      gap: 22px;
+      align-items: stretch;
+      min-height: 218px;
+      padding: 17px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary:focus-visible {
+      outline: 4px solid #5e91ed;
+      outline-offset: -4px;
+    }
+
+    .cover-frame {
+      position: relative;
+      align-self: center;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: #d8d4ca;
+      border: 1px solid #bfb6a4;
+      box-shadow: 4px 5px 0 #18243a;
+    }
+
+    .cover-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .adult-badge {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      padding: 4px 7px 5px;
+      color: #fff;
+      background: #a72736;
+      border: 1px solid rgba(255,255,255,.7);
+      font-size: .72rem;
+      line-height: 1;
+      font-weight: 900;
+      box-shadow: 2px 2px 0 rgba(0,0,0,.6);
+    }
+
+    .card-meta {
+      align-self: center;
+      min-width: 0;
+      padding: 4px 0;
+    }
+
+    .party-code {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      color: #fff;
+      background: var(--blue);
+      font-size: .8rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: .08em;
+      box-shadow: 3px 3px 0 var(--gold);
+    }
+
+    .card-meta h3 {
+      margin: 0 0 8px;
+      font-family: "Black Han Sans", sans-serif;
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: -.035em;
+    }
+
+    .work-title {
+      margin: 0 0 4px;
+      color: #173f89;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 900;
+    }
+
+    .author,
+    .jp-title {
+      margin: 0;
+      font-size: .82rem;
+      line-height: 1.55;
+      font-weight: 600;
+      color: #555a62;
+    }
+
+    .jp-title { margin-top: 5px; }
+
+    .open-label {
+      display: inline-block;
+      margin-top: 14px;
+      color: #1b3767;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .fold-icon {
+      align-self: center;
+      justify-self: center;
+      color: #173f89;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 300;
+      transition: transform .22s ease, color .22s ease;
+    }
+
+    details[open] .fold-icon {
+      color: #a27506;
+      transform: rotate(45deg);
+    }
+
+    .prompt-body {
+      padding: 25px 27px 28px;
+      color: #e8edf5;
+      background:
+        linear-gradient(135deg, rgba(32, 79, 165, .2), transparent 38%),
+        var(--navy);
+      border-top: 4px solid var(--gold);
+      animation: reveal .24s ease-out;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .prompt-title {
+      margin: 0 0 17px;
+      color: var(--gold);
+      font-size: 1.04rem;
+      line-height: 1.5;
+      font-weight: 900;
+    }
+
+    .roster {
+      margin: 0 0 19px;
+      padding: 14px 16px;
+      background: #080d17;
+      border-left: 4px solid var(--blue);
+    }
+
+    .roster p {
+      margin: 0 0 6px;
+      font-size: .9rem;
+      line-height: 1.62;
+    }
+
+    .roster p:last-child { margin-bottom: 0; }
+    .roster strong { color: #fff; }
+
+    .prompt-body ul {
+      margin: 0;
+      padding-left: 1.35rem;
+    }
+
+    .prompt-body li {
+      margin: 0 0 9px;
+      padding-left: 3px;
+      font-size: .94rem;
+      line-height: 1.72;
+    }
+
+    .prompt-body li:last-child { margin-bottom: 0; }
+    .prompt-body strong { color: #fff; }
+
+    footer {
+      margin-top: 38px;
+      padding-top: 18px;
+      color: #7f8ba0;
+      border-top: 1px solid #273650;
+      font-size: .76rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      main { width: min(100% - 22px, 940px); padding-top: 36px; }
+      .guide-grid { grid-template-columns: 1fr; }
+      .purchase-note { padding: 23px 20px 21px; }
+      summary { grid-template-columns: 112px minmax(0, 1fr); gap: 16px; min-height: 185px; padding: 14px; }
+      .fold-icon { position: absolute; right: 14px; bottom: 13px; font-size: 1.65rem; }
+      .card-meta h3 { padding-right: 20px; }
+      .prompt-body { padding: 22px 19px 24px; }
+      .party-heading { display: block; }
+      .party-heading p { margin-top: 8px; }
+    }
+
+    @media (max-width: 430px) {
+      .purchase-note p,
+      .guide-panel li,
+      .prompt-body li { font-size: .9rem; }
+      .guide-panel { padding: 20px 17px; }
+      summary { grid-template-columns: 92px minmax(0, 1fr); gap: 13px; min-height: 160px; padding: 12px; }
+      .party-code { margin-bottom: 6px; font-size: .7rem; }
+      .card-meta h3 { margin-bottom: 5px; font-size: 1.45rem; }
+      .work-title { font-size: .88rem; }
+      .author, .jp-title { font-size: .74rem; }
+      .open-label { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">DUNGEON OBSERVATION SYSTEM · N01–N12</p>
+      <h1>네임드 파티 패러디 원작 안내</h1>
+      <div class="gold-rule" aria-hidden="true"></div>
+
+      <div class="purchase-note">
+        <p>수록된 모든 만화는 한국에 정식 발매되었으며, 제작자가 리디북스에서 전자책으로 전권 구매한 작품입니다.</p>
+        <p>표지는 일본어판을 기준으로 했습니다.</p>
+        <p><strong>각 카드를 클릭하면 작품에 등록된 <span class="prompt-emphasis">원본 프롬프트</span>를 확인할 수 있습니다.</strong></p>
+      </div>
+
+      <p class="version-note">※ 수록된 원본 프롬프트는 전연령가 버전을 기준으로 하며, 몬스터를 「먹는」 행위 중 실제 섭취(COOK &amp; EAT)에 초점을 맞춰 작성했습니다. 성인용 버전에서는 일부 사건이 성인 맥락으로 전개될 수 있도록 몇몇 표현만 소폭 변경했습니다.<br>예: ‘까다로운 식성’ → ‘까다로운 취향’</p>
+
+      <div class="guide-grid">
+        <section class="guide-panel" aria-labelledby="principles-title">
+          <h2 class="section-label" id="principles-title">패러디 원칙</h2>
+          <ul>
+            <li>유명 만화·게임의 파티 구성과 대표 사건, 콘셉트를 알아볼 수 있을 정도로 비튼다. 원작 재현·표절이 되지 않도록 철저하게 패러디 작법으로 구성한다.</li>
+            <li><strong>공개 시 반드시 원작을 소개한다.</strong></li>
+            <li>이름·직업·관계·반복 사건은 원본의 인상을 남기되 그대로 베끼지 않고, 몬스터 「먹기」 유행과 던전 운영 문제에 맞춰 변형한다.</li>
+            <li>각 네임드 파티에는 반복적으로 발생하는 고정 행동이나 사건이 있다.</li>
+            <li>원작 설정을 직접 드러내지 않는다. 특히 원작 고유 설정을 설명하거나 가져오지 않는다. 원작을 아는 사람이라면 파티명·변주된 이름·반복 사건으로 반드시 원작을 눈치챌 수 있게 한다.</li>
+            <li>관측 화면상의 행동 설정을 위해 최소한의 성격만 설정한다. 말투·외모 등 세부 요소는 고정하지 않는다.</li>
+          </ul>
+        </section>
+
+        <section class="guide-panel" aria-labelledby="criteria-title">
+          <h2 class="section-label" id="criteria-title">패러디작 선정 기준</h2>
+          <ul>
+            <li>제작자가 구매한 작품 중 소재가 겹치거나 유사한 톤앤매너를 지닌 작품.</li>
+            <li>그중 《전(全) 마왕성 관측 시스템》의 세계관과 몬스터 「먹기」 유행에 자연스럽게 녹여낼 수 있는 작품.</li>
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <section aria-labelledby="party-list-title">
+      <div class="party-heading">
+        <h2 id="party-list-title">12개 네임드 파티</h2>
+        <p>카드를 눌러 원본 프롬프트 열기</p>
+      </div>
+
+      <div class="party-list">
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N01.webp" alt="마법의 렉스의 변태 카르테 일본어판 1권 표지">
+              <span class="adult-badge">🔞 성인작품</span>
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N01</span>
+              <h3>마법의사 렉시 파티</h3>
+              <p class="work-title">《마법의 렉스의 변태 카르테》</p>
+              <p class="author">모토미 다이스케</p>
+              <p class="jp-title" lang="ja">「魔法医レクスの変態カルテ」(元三大介)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N01] 파티명 “마법의사 렉시 파티”</h4>
+            <div class="roster">
+              <p><strong>렉시:</strong> 인간 마법의사·마법사/女·중년/ISTJ, 의사윤리·상식인</p>
+              <p><strong>벨마르:</strong> 마족 인큐버스/男/ESTP, 불량·능청</p>
+            </div>
+            <ul>
+              <li>마법약 재료를 채집하러 온 모범적인 파티.</li>
+              <li>몬스터를 먹지 않는다. 대신 몬스터를 「먹으려다」 설명하기 민망한 응급실 괴담급 사고를 낸 모험가 일행과 조우하며, 렉시가 호되게 꾸짖고 치료.</li>
+              <li>렉시가 과거 용사였음이 밝혀지는 사건이 드물게 발생해 패널·모험가·마족 팬들이 술렁인다.</li>
+              <li>벨마르는 간헐적으로 몬스터를 「먹으려」 하나 늘 렉시에게 아슬아슬하게 저지당함.</li>
+              <li>벨마르는 몬스터를 「먹은」 전과자, 이유불명 렉시에게 전력을 봉인당한 채 동행 중. 각자 방식으로 전과에 부정적 반응을 보이지만, 봉인자가 용사임이 확인되면 책임은 용사 쪽이라며 넘어간다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N02.webp" alt="마물들은 계획한다 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N02</span>
+              <h3>계획이 있는 파티</h3>
+              <p class="work-title">《마물들은 계획한다》</p>
+              <p class="author">원작: 카토 타쿠지 · 만화: 가시가시</p>
+              <p class="jp-title" lang="ja">「魔のものたちは企てる」(加藤拓弐／ガしガし)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N02] 파티명 “계획이 있는 파티”</h4>
+            <div class="roster">
+              <p><strong>[체체/슈/가츠]:</strong> 인간/직업·성별 랜덤/INTJ, 집요·탐구광</p>
+              <p><strong>리체:</strong> 인간 주술사/女/ISTJ, 무뚝뚝·담담</p>
+            </div>
+            <ul>
+              <li>둘 다 정체를 숨기고 인간 모험가의 모습으로 등장. ‘긍휼의 사신’은 [체체/슈/가츠] 중 하나의 이름으로 나타나며, 성별과 직업은 랜덤.</li>
+              <li>‘긍휼의 사신’은 집요할 정도로 꼼꼼하게 던전 시설·함정·몬스터를 조사하고, 리체가 보조한다.</li>
+              <li>조사가 「먹으려는」 행동처럼 보일 수는 있으나, 절대 몬스터를 먹진 않는다.</li>
+              <li>수상히 여기면 정체가 밝혀진다. [체체/슈/가츠]는 이웃 던전의 기술개발국 국장이 변장한 모습. ‘긍휼의 사신’이라는 마족이며, 통칭 ‘긍휼경’. 리체는 그의 임프 조수. → 즉, 경쟁사의 암행 벤치마킹.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N03.webp" alt="이 세계는 너무나 불완전하다 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N03</span>
+              <h3>너무나 불완전한 파티</h3>
+              <p class="work-title">《이 세계는 너무나 불완전하다》</p>
+              <p class="author">사토 마사미치</p>
+              <p class="jp-title" lang="ja">「この世界は不完全すぎる」(左藤真通)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N03] 파티명 “너무나 불완전한 파티”</h4>
+            <div class="roster">
+              <p><strong>히가:</strong> 인간 도적/男/근육질·비무장·아이템多배낭/ISTJ</p>
+              <p><strong>리코라:</strong> 인간 도적/女/단신·마을주민풍/ESFJ</p>
+              <p><strong>아미노:</strong> 하플링 주술사/男/비무장·화구/ISFJ</p>
+              <p><strong>아키나:</strong> 엘프 경갑대검사/女/ESFP</p>
+            </div>
+            <ul>
+              <li>모험가로 위장한 던전품질 검수단. 기묘한 조합·무장이나 비정상적으로 강함.</li>
+              <li>공략 중 결함을 발견한다. 과밀·작동·규격·동선 문제부터 보물·소재 획득 허점까지, 결함 규모는 랜덤.</li>
+              <li>문을 수없이 여닫거나 일부러 함정을 밟고 벽에 몸을 비비는 등 희한한 검수작업을 반복하며 보고서 작성.</li>
+              <li>몬스터 상호작용 확인을 위해 핥거나 맛보거나 일부러 먹혀보는 등 수상한 검증도 수행한다.</li>
+              <li>관제실은 기행으로 여기다가 결함이 연달아 적발되면 점점 감사 현장처럼 긴장한다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N04.webp" alt="모험가를 반드시 죽이는 던전 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N04</span>
+              <h3>모험가를 죽이는 파티</h3>
+              <p class="work-title">《모험가를 반드시 죽이는 던전》</p>
+              <p class="author">도만 세이만</p>
+              <p class="jp-title" lang="ja">「冒険者絶対殺すダンジョン」(道満晴明)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N04] 파티명 “모험가를 죽이는 파티”</h4>
+            <div class="roster">
+              <p><strong>나이트:</strong> 인간 검사/女·장신/ISTP, 나른·영리</p>
+              <p><strong>이이네:</strong> 인간 도적/女·단신/ESTP, 저돌적·허당</p>
+            </div>
+            <ul>
+              <li>타 던전의 현직 직원. 복지용 무료입장권으로 모험가 신분 방문. 순수 휴가. 벤치마킹 목적 없음.</li>
+              <li>직업병으로 비품을 정리하고 함정을 수리하며 쓰레기·시체를 치운다.</li>
+              <li>처음에는 쉬엄쉬엄 구경하지만, 몬스터 괴롭힘·시설 파손 등 민폐를 목격하고 분노하며 돌변. 던전의 함정·구조·몬스터를 활용해 민폐 모험가들을 죽인다.</li>
+              <li>몬스터를 「먹지는」 않으나, 모험가를 몬스터에게 「먹여서」 처리하는 데엔 거리낌이 없다.</li>
+              <li>살해 후 현장을 청소하고 비품까지 원위치한 뒤 아무렇지 않게 탐색을 재개.</li>
+              <li>정리·수리·청소 중 사고에 휘말려 사망하거나, 퇴장 중 사고에 휘말려 사망.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N05.webp" alt="헤테로게니아 링귀스티코 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N05</span>
+              <h3>몬스트로게니아 파티</h3>
+              <p class="work-title">《헤테로게니아 링귀스티코 ~이종족 언어학 입문~》</p>
+              <p class="author">세노 샬트</p>
+              <p class="jp-title" lang="ja">「ヘテロゲニア リンギスティコ ～異種族言語学入門～」(Salt Seno)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N05] 파티명 “몬스트로게니아 파티”</h4>
+            <div class="roster">
+              <p><strong>교수:</strong> 인간 몬스터학자/男·중년/ENTP, 온화·괴짜</p>
+              <p><strong>하바카:</strong> 인간 몬스터학자/男·청년/INTP, 온화·탐구적</p>
+            </div>
+            <ul>
+              <li>몬스터의 의사소통 방식을 조사하러 온 사제 관계. 울음소리·동작·냄새·접촉·먹이교환 등을 기록하고 직접 따라하며 의사소통을 시도.</li>
+              <li>모방이 지나쳐 몬스터를 「먹으려는」 행동처럼 보이기도 하며, 위험한 상황에도 굴하지 않고 의미를 분석하려 한다.</li>
+              <li><strong>전투 능력 전무.</strong> 매번 죽기 직전까지 몰리고, 지식·임기응변과 몬스터 의사소통으로 위기를 벗어난다.</li>
+              <li>몬스터를 먹지는 않으나, 먹이를 맛보고 배설물·사체·몬스터에게 죽은 모험가 시체를 뒤지며, 살아남은 피해자를 붙잡아 인터뷰하는 등 수상한 조사를 반복한다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N06.webp" alt="던전 관리인 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N06</span>
+              <h3>던전 관리 직원?</h3>
+              <p class="work-title">《던전 관리인》</p>
+              <p class="author">후타미 스이</p>
+              <p class="jp-title" lang="ja">「ダンジョンの中のひと」(双見 酔)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N06] 파티명 “던전 관리 직원?”</h4>
+            <div class="roster">
+              <p><strong>클로이:</strong> 인간 도적/女·단독/ISTP, 침착·커뮤증</p>
+            </div>
+            <ul>
+              <li>던전 운영과 무관한 순수 모험가. 도적 기술뿐 아니라 신체·전투·마법까지 뛰어나, 혼자 던전을 완전 공략하고 몬스터와 보물을 싹쓸이할 수 있는 오버스펙.</li>
+              <li>평범하게 공략을 시작하지만, 혼자 장치와 몬스터를 능숙하게 공략하는 모습 때문에 <strong>내부 직원들이 타 부서 파견자로 착각</strong>한다. 직원들은 자연스럽게 업무를 맡기기 시작 → 점점 모험가 신분으로 직원 업무를 수행하게 되고, 공략로보다 직원 통로를 더 자주 오가게 된다.</li>
+              <li>말비나·멜빈을 포함한 <strong>관제실 전원이 클로이를 직원으로 오인</strong>해 ‘왜 계속 관측 대상으로 잡히는지’ 시스템 오류를 의심한다. 한참 뒤에야 입장료를 내고 들어온 모험가임을 알아챈다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N07.webp" alt="마물 돌보미 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N07</span>
+              <h3>몬스터 돌보미 외주팀</h3>
+              <p class="work-title">《마물 돌보미》</p>
+              <p class="author">히가시우라 유키</p>
+              <p class="jp-title" lang="ja">「魔もりびと」(東裏友希)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N07] 파티명 “몬스터 돌보미 외주팀”</h4>
+            <div class="roster">
+              <p><strong>아리아스:</strong> 엘프/몬스터 돌보미·前모험가/女/ENFP, 정많은</p>
+              <p><strong>라몬:</strong> 인간/몬스터 돌보미/男·노년/ISTP, 노련·거침없는</p>
+            </div>
+            <ul>
+              <li>몬스터육성부 실무진이 고용한 모범적인 <strong>전문 돌봄 외주팀</strong>. 현장에서 생태를 확인하며 먹이·건강·성장·육아 문제를 해결한다.</li>
+              <li>배설물 확인, 입에 손 넣기, 먹이 씹어주기, 삼켜지기 등 충격적인 돌봄 행위가 관측되나, 보틀이 방치한 문제를 대신 수습 중임이 드러난다.</li>
+              <li>보틀 미참여: 패널들이 외주팀의 실무와 보틀의 행태를 비교하며 부재중인 보틀을 가루가 되도록 깐다.</li>
+              <li>보틀 참여: 같은 이유로 면전에서 까이지만, 보틀은 오직 몬스터만 귀여워한다. 몬스터들의 만족을 자신의 규탄이 이끌어낸 제도 개선으로 해석하며 자화자찬한다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N08.webp" alt="츤데레 악역 영애 리젤로테와 실황의 엔도 군과 해설의 코바야시 양 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N08</span>
+              <h3>츤이 강한 파티</h3>
+              <p class="work-title">《츤데레 악역 영애 리젤로테와 실황의 엔도 군과 해설의 코바야시 양》</p>
+              <p class="author">원작: 에노시마 스즈 · 만화: 사카키 루미오</p>
+              <p class="jp-title" lang="ja">「ツンデレ悪役令嬢リーゼロッテと実況の遠藤くんと解説の小林さん」(恵ノ島すず／逆木ルミヲ)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N08] 파티명 “츤이 강한 파티”</h4>
+            <div class="roster">
+              <p><strong>라이젤롯:</strong> 인간 마법사/女/ESTJ, 성실·츤데레</p>
+              <p><strong>자크:</strong> 인간 성기사/男/ENFJ, 다정·모범</p>
+              <p><strong>파인:</strong> 인간 전사/女/ESFP, 명랑·대담</p>
+            </div>
+            <ul>
+              <li>라이젤롯과 자크는 약혼관계, 파인은 둘 관계를 응원하는 후배 모험가. 소재를 구하러 왔고, 파인은 몬스터 「먹기」에 아주 조금 관심.</li>
+              <li>라이젤롯은 전형적인 츤데레 악역영애. 자크와 파인의 행동을 모욕적으로 방해한다.</li>
+              <li><strong>정체불명의 외부중계가 관제실에 혼선 송출</strong>되어 내부중계를 빈번히 가로챈다. 외부실황(男)은 라이젤롯의 행동에 “츤이 강합니다!”라며 흥분, 외부해설(女)은 츤데레인 이유를 구구절절 해석한다.</li>
+              <li>말비나는 실황권을 되찾으려 목소리를 높이고, 멜빈은 외부해설까지 해설. 패널들은 사건보다 중계충돌과 츤데레 진위를 두고 논쟁.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N09.webp" alt="던전밥 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N09</span>
+              <h3>나이오스 파티</h3>
+              <p class="work-title">《던전밥》</p>
+              <p class="author">쿠이 료코</p>
+              <p class="jp-title" lang="ja">「ダンジョン飯」(九井諒子)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N09] 파티명 “나이오스 파티”</h4>
+            <div class="roster">
+              <p><strong>나이오스:</strong> 인간 중갑전사/男/INTP, 마이페이스·탐구광</p>
+              <p><strong>페린:</strong> 인간 신성마법사/女/INFP, 온화·엉뚱</p>
+              <p><strong>메르실:</strong> 하프엘프 마법사/女/ISFJ, 예민·상식적</p>
+              <p><strong>칠색:</strong> 하플링 도적/男/ISTJ, 신중·현실적</p>
+              <p><strong>젠지:</strong> 드워프 전사/男/ISTP, 우직·살뜰</p>
+            </div>
+            <ul>
+              <li>나이오스와 페린은 몬스터를 「먹는」 데 관심이 크다. 젠지는 중립적이며 나머지는 질색한다.</li>
+              <li>숙련 파티지만 입장 후 얼마 지나지 않아 <strong>페린이 사고에 휘말려 반드시 사망</strong>한다. 일행은 ‘잠깐’ 슬퍼한 뒤 교회 부활을 믿고 탐색 재개.</li>
+              <li>이후 나이오스는 반드시 일행 몰래 몬스터를 ‘잘못된’ 방법으로 「먹으려」 하고, 들킨다. 젠지가 ‘올바른’ 방법을 알려주고, 나이오스 혼자 남아 몬스터를 마저 「먹는다」.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N10.webp" alt="심부름꾼 사이토 씨 이세계에 가다 일본어판 1권 표지" loading="lazy">
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N10</span>
+              <h3>사이고 씨 파티</h3>
+              <p class="work-title">《심부름꾼 사이토 씨, 이세계에 가다》</p>
+              <p class="author">이치토모 카즈토모</p>
+              <p class="jp-title" lang="ja">「便利屋斎藤さん、異世界に行く」(一智和智)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N10] 파티명 “사이고 씨 파티”</h4>
+            <div class="roster">
+              <p><strong>사이고 씨:</strong> 인간 심부름꾼/男/ISFJ, 겸손·세심</p>
+              <p><strong>엘자:</strong> 인간 중전사/女/ISFP, 강직·수줍</p>
+              <p><strong>멀린:</strong> 인간 마법사/男·노년/ENTP, 유능·허당</p>
+              <p><strong>라팡핑:</strong> 요정 성직자/女·소형/ESTJ, 야무짐</p>
+            </div>
+            <ul>
+              <li>역할 분담이 안정적인 모범 정석 파티. 사이고 씨는 일종의 도적 포지션, 뭐든 한다.</li>
+              <li><strong>문제행동·기행이 전혀 없어</strong> 중계 재미와 텐션이 떨어진다.</li>
+              <li>[엘자 점액·곤충·촉수 몬스터 기피/멀린 주문 망각/라팡핑 치료비 요구]로 인한 소란이 문제행동으로 오인되어 관측.</li>
+              <li>지켜보면 평범한 돌발상황으로 판명된다. 사이고 씨가 생활기술과 임기응변으로 수습하고 공략을 재개.</li>
+              <li>관제실은 <strong>재미없다며 곧 화면을 돌린다.</strong> 다시 잡혀도 착실히 공략 중이라 금방 다른 대상으로 전환한다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N11.webp" alt="이종족 리뷰어스 일본어판 1권 표지" loading="lazy">
+              <span class="adult-badge">🔞 성인작품</span>
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N11</span>
+              <h3>몬스터 리뷰 파티</h3>
+              <p class="work-title">《이종족 리뷰어스》</p>
+              <p class="author">원작: 아마하라 · 만화: masha</p>
+              <p class="jp-title" lang="ja">「異種族レビュアーズ」(原作：天原／作画：masha)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N11] 파티명 “몬스터 리뷰 파티”</h4>
+            <div class="roster">
+              <p><strong>스탱크:</strong> 인간 검사/男/ESTP, 적극적</p>
+              <p><strong>젤로:</strong> 엘프 궁수·마법사/男/ISTP, 거리낌없는</p>
+              <p><strong>칸첼:</strong> 하플링 도적/男/ENTJ, 기교파·사디스트</p>
+              <p><strong>크림벨:</strong> 천사 성직자/양성구유/ISFP, 소극·수동적</p>
+            </div>
+            <ul>
+              <li>숙련 파티지만 공략·보물에 관심 없고, 오직 다양한 몬스터를 「먹고」 평가하러 온다. 위험하거나 기피되는 종도 예외 없음.</li>
+              <li>전투·마법·정찰은 모두 원하는 몬스터에게 접근·제압한 뒤 가장 만족스럽게 「먹기」 위한 과정.</li>
+              <li><strong>넷이 함께 「먹은」 뒤, 그 자리에서 자기들끼리 평가</strong>하고, 다음 대상을 찾아 이동한다. 던전 공략보다 무제한 뷔페 순회에 가깝다.</li>
+              <li>관측될 때마다 먹는 중이거나 감상회 중이거나 다음 대상에게 접근 중이며, 개입하지 않으면 절대 멈추지 않는다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="party-card">
+          <summary>
+            <div class="cover-frame">
+              <img src="https://raw.githubusercontent.com/Ej761/publish/main/dungeon/N12.webp" alt="둥지 짓는 드래곤 일본어판 게임 패키지" loading="lazy">
+              <span class="adult-badge">🔞 성인작품</span>
+            </div>
+            <div class="card-meta">
+              <span class="party-code">N12</span>
+              <h3>드래곤 없는 둥지 파티</h3>
+              <p class="work-title">《둥지 짓는 드래곤》</p>
+              <p class="author">게임 · 소프트하우스 캐러</p>
+              <p class="jp-title" lang="ja">「巣作りドラゴン」(Game／ソフトハウスキャラ)</p>
+              <span class="open-label">원본 프롬프트 확인</span>
+            </div>
+            <span class="fold-icon" aria-hidden="true">＋</span>
+          </summary>
+          <div class="prompt-body">
+            <h4 class="prompt-title">[N12] 파티명 “드래곤 없는 둥지 파티”</h4>
+            <div class="roster">
+              <p><strong>유메리:</strong> 수인(늑대귀·꼬리) 전사/女/ISFJ, 온화·강단</p>
+              <p><strong>이페:</strong> 인간 마법검사/女/ISTJ, 성실·충직</p>
+              <p><strong>루크라:</strong> 인간 마법사/女/ENTJ, 기셈·자존심</p>
+            </div>
+            <ul>
+              <li>용 브래드(男)의 하렘을 구성하는 3인조. 그의 까다로운 식성을 만족시킬 인간형 몬스터를 포획하러 온다.</li>
+              <li>일반 몬스터·보물에는 관심 없고 인간형 몬스터만 찾는다. 후보를 발견하면 셋이 직접 ‘남자답게’ 「먹어보며」 브래드가 「먹을」 만한 상대인지 평가한다.</li>
+              <li>합격한 몬스터는 둥지로 데려가기 위해 생포하고, 탈락한 몬스터는 그대로 두고 다음 후보를 찾는다.</li>
+              <li>관측될 때마다 후보 물색·직접 평가·합격자 포박 중이며, 포획한 몬스터를 던전 밖으로 빼돌린다.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <footer>《전(全) 마왕성 관측 시스템》 · Named Parties</footer>
+  </main>
+</body>
+</html>
